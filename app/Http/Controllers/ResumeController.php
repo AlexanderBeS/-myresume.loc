@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resume;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ResumeController extends Controller
 {
@@ -14,7 +16,10 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        //
+
+        $resumes = Resume::all()->where('user_id', Auth::id());
+
+        return view('resumes.index', compact('resumes'));
     }
 
     /**
@@ -35,14 +40,16 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
+
         try {
             $this->validate($request, [
-                'text' => 'required'
+                'content' => 'required'
             ]);
 
             $resume = new Resume();
-            $resume->text = $request->get('title');
-            $resume->user_id = self::USER_ID;
+            $resume->content = $request->get('content');
+            $resume->user_id = Auth::id();
+
             $resume->save();
 
             return redirect(route('resumes.index'));
@@ -60,7 +67,9 @@ class ResumeController extends Controller
      */
     public function show($id)
     {
-        //
+        $resume = $this->fetchResumeOrFail($id);
+
+        return view('resumes.show', compact('resume'));
     }
 
     /**
@@ -71,7 +80,9 @@ class ResumeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $resume = $this->fetchResumeOrFail($id);
+
+        return view('resumes.edit', compact('resume'));
     }
 
     /**
@@ -83,7 +94,21 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $this->validate($request, [
+                'content' => 'required'
+            ]);
+
+
+            $resume = app()->make(Resume::class)->find($id);
+
+            $resume->content = $request->get('content');
+            $resume->save();
+
+            return redirect(route('resumes.show', ['resume' => $id]));
+        } catch (\Exception $exception) {
+            return redirect(route('resumes.edit', ['resume' => $id]));
+        }
     }
 
     /**
@@ -94,6 +119,18 @@ class ResumeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $resume = Resume::findOrFail($id);
+
+        $resume->delete();
+        return redirect(route('resumes.index'));
+    }
+
+    private function fetchResumeOrFail(int $id)
+    {
+        try {
+            return Resume::find($id);
+        } catch (\Exception $e) {
+            abort(Response::HTTP_NOT_FOUND, $e->getMessage());
+        }
     }
 }

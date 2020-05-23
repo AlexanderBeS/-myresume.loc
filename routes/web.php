@@ -27,3 +27,8 @@ Route::get('/home', function (){
 Route::get('/test', function () {
     return view('layouts.child');
 });
+
+
+
+
+Route::resource('resumes', 'ResumeController');
