@@ -42,12 +42,21 @@
             font-size: 3.5rem;
         }
     }
+
+    html, body {
+        height: 100% !important;
+    }
+    body {
+        display: flex!important;
+        flex-direction: column!important;
+    }
+    .content {
+        flex: 1 0 auto!important;
+    }
 </style>
 
 </head>
 <body>
-<div id="app">
-
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +66,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -97,9 +106,12 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                           document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
+
+                        <a class="dropdown-item" href="{{ route('resumes.index') }}">Мои резюме</a>
+                        <a class="dropdown-item" href="{{ route('resumes.create') }}">Создать резюме</a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -109,14 +121,30 @@
             @endguest
         </ul>
     </nav>
-
-
-
-    <main class="py-4">
+    <main class="py-4 content">
         @yield('content')
     </main>
+    <footer class="page-footer font-small unique-color-dark pt-4 mastfoot navbar-fixed-bottom bg-dark">
 
-</div>
+        <!-- Footer Elements -->
+        <div class="container text-secondary">
 
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="{{ route('login') }}" class="btn btn-outline-white btn-rounded btn-secondary">Sign up!</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-secondary">© 2020 Copyright: Al</div>
+        <!-- Copyright -->
+
+    </footer>
 </body>
 </html>

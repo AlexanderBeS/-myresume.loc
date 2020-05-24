@@ -13,22 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.main');
-});
-
 Auth::routes();
 
-Route::get('/home', function (){
+
+Route::get('/', ['as' => 'home', function (){
     return view('home');
-});
-
-
-Route::get('/test', function () {
-    return view('layouts.child');
-});
-
-
+}]);
 
 
 Route::resource('resumes', 'ResumeController');

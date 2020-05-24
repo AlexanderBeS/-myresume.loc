@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Добро пожаловать на сайт по созданию резюме!
                 </div>
             </div>
         </div>
