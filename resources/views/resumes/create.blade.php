@@ -19,28 +19,34 @@
     <h1>Общая информация</h1>
 
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Должность, на которой вы хотите работать*:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+        <div class="mb-4">
+            <label for="position">Должность, на которой вы хотите работать*:</label>
+            <textarea class="form-control" id="position" rows="2"></textarea>
+        </div>
 
-        <label for="exampleFormControlTextarea2">Желаемый город работы*:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea2">
+        <div class="mb-4">
+            <label for="city">Желаемый город работы*:</label>
+            <input type="text" class="form-control" id="city">
+        </div>
 
+        <div class="mb-4">
+            <label for="employment_type">Вид занятости*:</label>
+            <select class="form-control mb-4" id="employment_type">
+                <option>полная занятость</option>
+                <option>неполная занятость</option>
+                <option>удаленная работа</option>
+            </select>
+        </div>
 
-        <label for="exampleFormControlSelect3">Вид занятости*:</label>
-        <select class="form-control" id="exampleFormControlSelect3">
-            <option>полная занятость</option>
-            <option>неполная занятость</option>
-            <option>удаленная работа</option>
-        </select>
+        <div class="row mb-4">
+            <label for="salary" class="col-4">Зарплата</label>
+            <input type="text" class="form-control col-4" id="salary">
+            <p class="col-4">грн в месяц</p>
+        </div>
 
-
-        <label for="exampleFormControlTextarea4">Зарплата</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea4"> грн в месяц
-
-
-
-        <label for="exampleFormControlSelect5">Категория для размещения*:</label>
-        <select class="form-control" id="exampleFormControlSelect5">
+        <div class="mb-4">
+            <label for="job_category">Категория для размещения*:</label>
+            <select class="form-control" id="job_category">
             <option>IT, компьютеры, интернет</option>
             <option>Администрация, руководство среднего звена</option>
             <option>Бухгалтерия, аудит</option>
@@ -71,53 +77,70 @@
             <option>Юриспруденция</option>
             <option>Другие сферы деятельности</option>
         </select>
+        </div>
     </div>
 
     <h1>Опыт работы</h1>
     <div class="form-group">
-        <label for="exampleFormControlTextarea6">Опыт работы</label>
-        <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"></textarea>
 
-        <label for="exampleFormControlTextarea7">Добавьте последнее место работы.(Название компании, Город, Должность, Сфера деятельности компании)</label>
-        <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
+        <div class="mb-4">
+            <label for="experience">Опыт работы</label>
+            <textarea class="form-control" id="experience" rows="3"></textarea>
+        </div>
 
-        <label for="birthday">Период работы с*:</label>
-        <input type="date" id="birthday" name="birthday">
+        <div class="mb-4">
+            <label for="last_job">Добавьте последнее место работы.(Название компании, Город, Должность, Сфера деятельности компании)</label>
+            <textarea class="form-control" id="last_job" rows="3"></textarea>
+        </div>
 
-        <label for="birthday1">по*:</label>
-        <input type="date" id="birthday1" name="birthday1">
+        <div class="mb-4">
+            <label for="job_date_start">Период работы с*:</label>
+            <input type="date" id="job_date_start" name="job_date_start">
 
-        <label for="exampleFormControlTextarea12">Обязанности и достижения на этой должности:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea12" rows="3"></textarea>
+            <label for="job_date_finish">по*:</label>
+            <input type="date" id="job_date_finish" name="job_date_finish">
+        </div>
 
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">У меня нет опыта работы</label>
+        <div class="mb-4">
+            <label for="exampleFormControlTextarea12">Обязанности и достижения на этой должности:</label>
+            <textarea class="form-control" id="duties" rows="3"></textarea>
+        </div>
+
+        <div class="mb-4">
+            <input type="checkbox" class="" id="no_experience">
+            <label class="form-check-label" for="no_experience">У меня нет опыта работы</label>
+        </div>
     </div>
 
     <h1>Образование</h1>
     <div class="form-group">
-        <label for="exampleFormControlTextarea13">Добавьте ваш наивысший уровень образования.</label>
-        <textarea class="form-control" id="exampleFormControlTextarea13" rows="3"></textarea>
+        <div class="mb-4">
+            <label for="education_lvl">Добавьте ваш наивысший уровень образования.</label>
+            <textarea class="form-control" id="education_lvl" rows="3"></textarea>
+        </div>
 
+        <div class="mb-4">
+            <label for="type_education_lvl">Уровень образования*:</label>
+            <select class="form-control" id="type_education_lvl">
+                <option value="" selected> - выбрать - </option>
+                <option value="66">высшее</option>
+                <option value="67">неоконченное высшее</option>
+                <option value="68">среднее специальное</option>
+                <option value="69">среднее</option>
+            </select>
+        </div>
 
+        <div class="mb-4">
+            <label for="institution">Учебное заведение*: (Факультет,специальность, Город)</label>
+            <textarea class="form-control" id="institution" rows="3"></textarea>
+        </div>
 
-        <label for="exampleFormControlSelect6">Уровень образования*:</label>
-        <select class="form-control" id="exampleFormControlSelect6">
-            <option value=""> - выбрать - </option>
-            <option value="66">высшее</option>
-            <option value="67">неоконченное высшее</option>
-            <option value="68" selected>среднее специальное</option>
-            <option value="69">среднее</option>
-        </select>
-
-
-        <label for="exampleFormControlTextarea15">Учебное заведение*: (Факультет,специальность, Город)</label>
-        <textarea class="form-control" id="exampleFormControlTextarea15" rows="3"></textarea>
-        <label for="birthday3">Период обучения с*:</label>
-        <input type="date" id="birthday" name="birthday">
-
-        <label for="birthday4">по*:</label>
-        <input type="date" id="birthday1" name="birthday1">
+        <div class="mb-4">
+            <label for="education_date_start">Период обучения с*:</label>
+            <input type="date" id="education_date_start" name="education_date_start">
+            <label for="education_date_finish">по*:</label>
+            <input type="date" id="education_date_finish" name="education_date_finish">
+        </div>
     </div>
 
 
@@ -128,13 +151,13 @@
         <div class="col-9">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="legendRadio" id="legendRadio1" value="1">
+                    <input class="form-check-input" type="radio" name="legendRadio" id="visible_radio" value="1">
                     Размещено на сайте
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="legendRadio" id="legendRadio2" value="2" checked>
+                    <input class="form-check-input" type="radio" name="legendRadio" id="not_visible_radio" value="2" checked>
                     Скрыто
                 </label>
             </div>

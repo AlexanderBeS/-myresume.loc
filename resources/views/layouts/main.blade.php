@@ -104,14 +104,13 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('resumes.index') }}">Мои резюме</a>
+                        <a class="dropdown-item" href="{{ route('resumes.create') }}">Создать резюме</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
-
-                        <a class="dropdown-item" href="{{ route('resumes.index') }}">Мои резюме</a>
-                        <a class="dropdown-item" href="{{ route('resumes.create') }}">Создать резюме</a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -127,6 +126,7 @@
     <footer class="page-footer font-small unique-color-dark pt-4 mastfoot navbar-fixed-bottom bg-dark">
 
         <!-- Footer Elements -->
+        @guest
         <div class="container text-secondary">
 
             <!-- Call to action -->
@@ -140,6 +140,7 @@
             </ul>
         </div>
         <!-- Footer Elements -->
+        @endguest
 
         <!-- Copyright -->
         <div class="footer-copyright text-center text-secondary">© 2020 Copyright: Al</div>
