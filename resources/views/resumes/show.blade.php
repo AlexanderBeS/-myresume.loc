@@ -3,7 +3,7 @@
 @section('content')
 
 
-<p> {{ $resume->content }}</p>
+<p> {{ $resume->position }}</p>
 
 
 @endsection

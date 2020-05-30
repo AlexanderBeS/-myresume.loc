@@ -41,22 +41,50 @@ class ResumeController extends Controller
     public function store(Request $request)
     {
 
-        try {
+        //dd($request->all());
+
+        //try {
             $this->validate($request, [
-                'content' => 'required'
+                'position' => 'required',
+                'city' => 'required',
+                'employment_type' => 'required',
+                //'salary' => '',
+                'job_category' => 'required',
+                //'experience' => '',
+                //'last_job' => '',
+                //'job_date_start' => '',
+                //'job_date_finish' => '',
+                //'duties' => '',
+                'resume_visibility' => 'required',
             ]);
 
             $resume = new Resume();
-            $resume->content = $request->get('content');
-            $resume->user_id = Auth::id();
-
+                $resume->position = $request->get('position');
+                $resume->city = $request->get('city');
+                $resume->employment_type = $request->get('employment_type');
+                $resume->salary = $request->get('salary');
+                $resume->job_category = $request->get('job_category');
+                $resume->experience = $request->get('experience');
+                $resume->last_job = $request->get('last_job');
+                $resume->job_date_start = $request->get('job_date_start');
+                $resume->job_date_finish = $request->get('job_date_finish');
+                $resume->duties = $request->get('duties');
+                $resume->no_experience = $request->get('no_experience');
+                $resume->education_lvl = $request->get('education_lvl');
+                $resume->type_education_lvl = $request->get('type_education_lvl');
+                $resume->institution = $request->get('institution');
+                $resume->education_date_start = $request->get('education_date_start');
+                $resume->education_date_finish = $request->get('education_date_finish');
+                $resume->resume_visibility = $request->get('resume_visibility');
+                $resume->user_id = Auth::id();
+                //dd($resume);
             $resume->save();
 
             return redirect(route('resumes.index'));
 
-        } catch (\Exception $e) {
-            return redirect(route('resumes.create'));
-        }
+//        } catch (\Exception $e) {
+//            return redirect(route('resumes.create'));
+//        }
     }
 
     /**
@@ -98,7 +126,6 @@ class ResumeController extends Controller
             $this->validate($request, [
                 'content' => 'required'
             ]);
-
 
             $resume = app()->make(Resume::class)->find($id);
 

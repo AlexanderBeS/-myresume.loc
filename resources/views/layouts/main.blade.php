@@ -120,7 +120,7 @@
             @endguest
         </ul>
     </nav>
-    <main class="py-4 content">
+    <main class="py-4 content w-100 m-3 p-3">
         @yield('content')
     </main>
     <footer class="page-footer font-small unique-color-dark pt-4 mastfoot navbar-fixed-bottom bg-dark">

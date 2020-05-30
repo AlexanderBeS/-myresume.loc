@@ -12,7 +12,24 @@ class Resume extends Model
 
     protected $fillable = [
         'content',
-        'user_id'
+        'user_id',
+        'position',
+        'city',
+        'employment_type',
+        'salary',
+        'job_category',
+        'experience',
+        'last_job',
+        'job_date_start',
+        'job_date_finish',
+        'duties',
+        'no_experience',
+        'education_lvl',
+        'type_education_lvl',
+        'institution',
+        'education_date_start',
+        'education_date_finish',
+        'resume_visibility',
     ];
 
     public function user(): BelongsTo

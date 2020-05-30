@@ -15,7 +15,6 @@ class CreateResumesTable extends Migration
     {
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
             $table->bigInteger('user_id');
             $table->softDeletes();
             $table->timestamps();
