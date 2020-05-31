@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<form action="{{ route('resumes.store') }}" method="post" style="width: 50%; margin: 0 auto;">
+<form action="{{ route('resumes.store') }}" method="post" style="width: 50%; margin: 0 auto;" enctype="multipart/form-data"enctype="multipart/form-data">
     @csrf
     <h1>Общая информация</h1>
 
@@ -65,6 +65,12 @@
                 <option value="29">Другие сферы деятельности</option>
             </select>
         </div>
+
+
+        <div class="mb-4">
+            <label for="photo">Загрузить аватар:</label>
+            <input type="file" name="photo" id="photo">
+        </div>
     </div>
 
     <h1>Опыт работы</h1>
@@ -102,7 +108,7 @@
     <h1>Образование</h1>
     <div class="form-group">
         <div class="mb-4">
-            <label for="education_lvl">Добавьте ваш наивысший уровень образования.</label>
+            <label for="education_lvl">Добавьте ваш наивысший уровень образования:</label>
             <textarea class="form-control" name="education_lvl" rows="3"></textarea>
         </div>
 

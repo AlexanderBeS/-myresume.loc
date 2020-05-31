@@ -9,6 +9,4 @@
     <button type="submit">Update resume</button>
 </form>
 
-
-
 @endsection

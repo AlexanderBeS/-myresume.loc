@@ -41,9 +41,7 @@ class ResumeController extends Controller
     public function store(Request $request)
     {
 
-        //dd($request->all());
-
-        //try {
+        try {
             $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
@@ -55,8 +53,19 @@ class ResumeController extends Controller
                 //'job_date_start' => '',
                 //'job_date_finish' => '',
                 //'duties' => '',
-                'resume_visibility' => 'required',
+                'resume_visibility' => 'required'
             ]);
+
+        if ($request->hasFile('photo')) {
+            $fileName = null;
+            if ($request->hasFile('photo')) {
+                $file = request()->file('photo');
+                $fileName = md5($file->getClientOriginalName() . time()) . "." . $file->getClientOriginalExtension();
+                $file->move('./uploads/images/', $fileName);
+            }
+            //dd($fileName);
+        }
+
 
             $resume = new Resume();
                 $resume->position = $request->get('position');
@@ -76,15 +85,15 @@ class ResumeController extends Controller
                 $resume->education_date_start = $request->get('education_date_start');
                 $resume->education_date_finish = $request->get('education_date_finish');
                 $resume->resume_visibility = $request->get('resume_visibility');
+                //$resume->avatar = $fileName;
                 $resume->user_id = Auth::id();
-                //dd($resume);
             $resume->save();
 
             return redirect(route('resumes.index'));
 
-//        } catch (\Exception $e) {
-//            return redirect(route('resumes.create'));
-//        }
+        } catch (\Exception $e) {
+            return redirect(route('resumes.create'));
+        }
     }
 
     /**

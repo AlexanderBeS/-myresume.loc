@@ -2,8 +2,9 @@
 
 @section('content')
 
+<div class="row  justify-content-center">
 @foreach($resumes as $resume)
-    <div class="card" style="width: 18rem;">
+    <div class="card mb-3 mr-3 col-3">
         <div class="card-body">
             <div class="row">
                 <h5 class="card-title col-10">
@@ -25,12 +26,12 @@
         </div>
     </div>
 @endforeach
+</div>
 
+<div class="row justify-content-center">
+    <div clas="col-3">
+        <a href="{{ route('resumes.create') }}" class="btn btn-primary">Создать новое резюме</a>
+    </div>
+</div>
 
-
-
-
-
-
-<a href="{{ route('resumes.create') }}">Создать новое резюме</a>
 @endsection
