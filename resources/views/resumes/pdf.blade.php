@@ -1,15 +1,13 @@
-@extends('layouts.main')
-
-@section('content')
 <div class="container">
     <h1>Общая информация</h1>
 
     <div class="form-group">
         @if ($resume->avatar)
-        <div class="mb-4">
-            <img src="{{Storage::url($resume->avatar)}}" class="img-thumbnail rounded" style="max-width: 100px; max-height: 100px;"/>
-        </div>
+            <div class="mb-4">
+                <img src="{{Storage::url($resume->avatar)}}" class="img-thumbnail rounded" style="max-width: 100px; max-height: 100px;"/>
+            </div>
         @endif
+
         <div class="mb-4">
             <p>Должность: {{ $resume->position }}</p>
         </div>
@@ -74,4 +72,3 @@
         </div>
     </div>
 </div>
-@endsection

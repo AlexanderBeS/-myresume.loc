@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<form action="{{ route('resumes.store') }}" method="post" style="width: 50%; margin: 0 auto;" enctype="multipart/form-data"enctype="multipart/form-data">
+<form action="{{ route('resumes.store') }}" method="post" style="width: 50%; margin: 0 auto;" enctype="multipart/form-data">
     @csrf
     <h1>Общая информация</h1>
 
@@ -26,9 +26,9 @@
         </div>
 
         <div class="row mb-4">
-            <label for="salary" class="col-4">Зарплата</label>
-            <input type="number" class="form-control col-4" name="salary">
-            <p class="col-4">грн в месяц</p>
+            <label for="salary" class="col-2">Зарплата</label>
+            <input type="number" class="form-control col-2" name="salary">
+            <p class="col-2">грн в месяц</p>
         </div>
 
         <div class="mb-4">
@@ -68,8 +68,8 @@
 
 
         <div class="mb-4">
-            <label for="photo">Загрузить аватар:</label>
-            <input type="file" name="photo" id="photo">
+            <label for="avatar">Загрузить аватар:</label>
+            <input type="file" name="avatar" id="avatar">
         </div>
     </div>
 
@@ -100,7 +100,7 @@
         </div>
 
         <div class="mb-4">
-            <input type="checkbox" class="" name="no_experience" id="no_experience">
+            <input type="checkbox" class="" name="no_experience" id="no_experience" value="1">
             <label class="form-check-label" for="no_experience">У меня нет опыта работы</label>
         </div>
     </div>

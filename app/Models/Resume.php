@@ -30,6 +30,7 @@ class Resume extends Model
         'education_date_start',
         'education_date_finish',
         'resume_visibility',
+        'avatar',
     ];
 
     public function user(): BelongsTo

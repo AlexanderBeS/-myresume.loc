@@ -6,6 +6,7 @@ use App\Models\Resume;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ResumeController extends Controller
 {
@@ -56,16 +57,12 @@ class ResumeController extends Controller
                 'resume_visibility' => 'required'
             ]);
 
-        if ($request->hasFile('photo')) {
             $fileName = null;
-            if ($request->hasFile('photo')) {
-                $file = request()->file('photo');
+            if ($request->hasFile('avatar')) {
+                $file = $request->file('avatar');
                 $fileName = md5($file->getClientOriginalName() . time()) . "." . $file->getClientOriginalExtension();
-                $file->move('./uploads/images/', $fileName);
+                $file->move('./storage', $fileName);
             }
-            //dd($fileName);
-        }
-
 
             $resume = new Resume();
                 $resume->position = $request->get('position');
@@ -85,7 +82,7 @@ class ResumeController extends Controller
                 $resume->education_date_start = $request->get('education_date_start');
                 $resume->education_date_finish = $request->get('education_date_finish');
                 $resume->resume_visibility = $request->get('resume_visibility');
-                //$resume->avatar = $fileName;
+                $resume->avatar = $fileName;
                 $resume->user_id = Auth::id();
             $resume->save();
 
@@ -131,20 +128,53 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
+        //try {
             $this->validate($request, [
-                'content' => 'required'
+                'position' => 'required',
+                'city' => 'required',
+                'employment_type' => 'required',
+                //'salary' => '',
+                'job_category' => 'required',
+                //'experience' => '',
+                //'last_job' => '',
+                //'job_date_start' => '',
+                //'job_date_finish' => '',
+                //'duties' => '',
+                'resume_visibility' => 'required'
             ]);
 
-            $resume = app()->make(Resume::class)->find($id);
+            $fileName = null;
+            if ($request->hasFile('avatar')) {
+                $file = $request->file('avatar');
+                $fileName = md5($file->getClientOriginalName() . time()) . "." . $file->getClientOriginalExtension();
+                $file->move('./storage', $fileName);
+            }
 
-            $resume->content = $request->get('content');
+            $resume = app()->make(Resume::class)->find($id);
+                $resume->position = $request->get('position');
+                $resume->city = $request->get('city');
+                $resume->employment_type = $request->get('employment_type');
+                $resume->salary = $request->get('salary');
+                $resume->job_category = $request->get('job_category');
+                $resume->experience = $request->get('experience');
+                $resume->last_job = $request->get('last_job');
+                $resume->job_date_start = $request->get('job_date_start');
+                $resume->job_date_finish = $request->get('job_date_finish');
+                $resume->duties = $request->get('duties');
+                $resume->no_experience = $request->get('no_experience');
+                $resume->education_lvl = $request->get('education_lvl');
+                $resume->type_education_lvl = $request->get('type_education_lvl');
+                $resume->institution = $request->get('institution');
+                $resume->education_date_start = $request->get('education_date_start');
+                $resume->education_date_finish = $request->get('education_date_finish');
+                $resume->resume_visibility = $request->get('resume_visibility');
+                $resume->avatar = $fileName;
             $resume->save();
 
             return redirect(route('resumes.show', ['resume' => $id]));
-        } catch (\Exception $exception) {
-            return redirect(route('resumes.edit', ['resume' => $id]));
-        }
+//        } catch (\Exception $exception) {
+//            return redirect(route('resumes.edit', ['resume' => $id]));
+//        }
     }
 
     /**
@@ -159,6 +189,23 @@ class ResumeController extends Controller
 
         $resume->delete();
         return redirect(route('resumes.index'));
+    }
+
+    /**
+     * @param $id
+     * @throws \Mpdf\MpdfException
+     *
+     */
+    public function download($id)
+    {
+        $resume = $this->fetchResumeOrFail($id);
+        $template = view('resumes.pdf', compact('resume')); //dd($template);
+
+
+
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($template->render());
+        $mpdf->Output();
     }
 
     private function fetchResumeOrFail(int $id)
