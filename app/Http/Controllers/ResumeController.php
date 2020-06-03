@@ -47,14 +47,21 @@ class ResumeController extends Controller
                 'position' => 'required',
                 'city' => 'required',
                 'employment_type' => 'required',
-                //'salary' => '',
+                'salary' => 'sometimes|integer|nullable',
                 'job_category' => 'required',
-                //'experience' => '',
-                //'last_job' => '',
-                //'job_date_start' => '',
-                //'job_date_finish' => '',
-                //'duties' => '',
-                'resume_visibility' => 'required'
+                'experience' => 'sometimes|string|nullable',
+                'last_job' => 'sometimes|string|nullable',
+                'job_date_start' => 'sometimes|date|nullable',
+                'job_date_finish' => 'sometimes|date|after:job_date_start|nullable',
+                'duties' => 'sometimes|string|nullable',
+                'resume_visibility' => 'required|integer',
+                'no_experience' => 'sometimes|integer|nullable',
+                'education_lvl'=> 'sometimes|integer|nullable',
+                'type_education_lvl'=> 'integer|nullable',
+                'institution'=> 'sometimes|string|nullable',
+                'education_date_start'=> 'sometimes|date|nullable',
+                'education_date_finish'=> 'sometimes|date|after:job_date_start|nullable',
+                'avatar'=> 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|nullable',
             ]);
 
             $fileName = null;
@@ -128,19 +135,27 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         //try {
             $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
                 'employment_type' => 'required',
-                //'salary' => '',
+                'salary' => 'sometimes|integer|nullable',
                 'job_category' => 'required',
-                //'experience' => '',
-                //'last_job' => '',
-                //'job_date_start' => '',
-                //'job_date_finish' => '',
-                //'duties' => '',
-                'resume_visibility' => 'required'
+                'experience' => 'sometimes|string|nullable',
+                'last_job' => 'sometimes|string|nullable',
+                'job_date_start' => 'sometimes|date|nullable',
+                'job_date_finish' => 'sometimes|date|after:job_date_start|nullable',
+                'duties' => 'sometimes|string|nullable',
+                'resume_visibility' => 'required|integer',
+                'no_experience' => 'sometimes|integer|nullable',
+                'education_lvl'=> 'sometimes|integer|nullable',
+                'type_education_lvl'=> 'integer|nullable',
+                'institution'=> 'sometimes|string|nullable',
+                'education_date_start'=> 'sometimes|date|nullable',
+                'education_date_finish'=> 'sometimes|date|after:job_date_start|nullable',
+                'avatar'=> 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|nullable',
             ]);
 
             $fileName = null;
@@ -168,7 +183,7 @@ class ResumeController extends Controller
                 $resume->education_date_start = $request->get('education_date_start');
                 $resume->education_date_finish = $request->get('education_date_finish');
                 $resume->resume_visibility = $request->get('resume_visibility');
-                $resume->avatar = $fileName;
+                if(!is_null($fileName)) $resume->avatar = $fileName;
             $resume->save();
 
             return redirect(route('resumes.show', ['resume' => $id]));

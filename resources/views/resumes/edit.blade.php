@@ -125,11 +125,11 @@
         <div class="mb-4">
             <label for="type_education_lvl">Уровень образования:</label>
             <select class="form-control" name="type_education_lvl">
-                <option value="" selected> - выбрать - </option>
-                <option value="1">высшее</option>
-                <option value="2">неоконченное высшее</option>
-                <option value="3">среднее специальное</option>
-                <option value="4">среднее</option>
+                <option value="" > - выбрать - </option>
+                <option value="1" {{ ($resume->type_education_lvl === 1) ? 'selected' : '' }}>высшее</option>
+                <option value="2" {{ ($resume->type_education_lvl === 2) ? 'selected' : '' }}>неоконченное высшее</option>
+                <option value="3" {{ ($resume->type_education_lvl === 3) ? 'selected' : '' }}>среднее специальное</option>
+                <option value="4" {{ ($resume->type_education_lvl === 4) ? 'selected' : '' }}>среднее</option>
             </select>
         </div>
 

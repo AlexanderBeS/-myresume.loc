@@ -11,7 +11,6 @@ class Resume extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'content',
         'user_id',
         'position',
         'city',
