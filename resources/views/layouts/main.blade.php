@@ -37,7 +37,6 @@
 
 @include('layouts.navbar')
 
-@include('layouts.priveleges')
 
 <main class="py-4 content w-100 container">
     @yield('content')

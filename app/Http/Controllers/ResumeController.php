@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Resume;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +18,16 @@ class ResumeController extends Controller
      */
     public function index()
     {
+
+
+        //test for roles
+        //$user = User::find(1);
+        //dd($user->roles);
+        $role = Role::find(2);
+        dd($role->users);
+
+        //test for roles
+
 
         $resumes = Resume::all()->where('user_id', Auth::id());
 

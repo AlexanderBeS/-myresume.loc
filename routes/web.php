@@ -18,7 +18,7 @@ Auth::routes();
 
 Route::get('/', ['as' => 'home', function (){
     return view('home');
-}]);
+}])->middleware(['role']);;
 
 
 
