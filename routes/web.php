@@ -25,3 +25,4 @@ Route::get('/', ['as' => 'home', function (){
 Route::resource('resumes', 'ResumeController');
 
 Route::get('resume/download/{userid}', ['as' => 'resumes.download', 'uses' => 'ResumeController@download']);
+Route::get('resume/showall', ['as' => 'resumes.showall', 'uses' => 'ResumeController@showAll']);

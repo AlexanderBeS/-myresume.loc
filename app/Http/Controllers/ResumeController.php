@@ -18,17 +18,6 @@ class ResumeController extends Controller
      */
     public function index()
     {
-
-
-        //test for roles
-        //$user = User::find(1);
-        //dd($user->roles);
-        $role = Role::find(2);
-        dd($role->users);
-
-        //test for roles
-
-
         $resumes = Resume::all()->where('user_id', Auth::id());
 
         return view('resumes.index', compact('resumes'));
@@ -147,7 +136,7 @@ class ResumeController extends Controller
     public function update(Request $request, $id)
     {
 
-        //try {
+        try {
             $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
@@ -198,9 +187,9 @@ class ResumeController extends Controller
             $resume->save();
 
             return redirect(route('resumes.show', ['resume' => $id]));
-//        } catch (\Exception $exception) {
-//            return redirect(route('resumes.edit', ['resume' => $id]));
-//        }
+        } catch (\Exception $exception) {
+            return redirect(route('resumes.edit', ['resume' => $id]));
+        }
     }
 
     /**
@@ -227,13 +216,17 @@ class ResumeController extends Controller
         $resume = $this->fetchResumeOrFail($id);
         $template = view('resumes.pdf', compact('resume')); //dd($template);
 
-
-
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->WriteHTML($template->render());
         $mpdf->Output();
     }
 
+    /**
+     * @param int $id
+     * @return mixed
+     *
+     *
+     */
     private function fetchResumeOrFail(int $id)
     {
         try {
@@ -241,5 +234,21 @@ class ResumeController extends Controller
         } catch (\Exception $e) {
             abort(Response::HTTP_NOT_FOUND, $e->getMessage());
         }
+    }
+
+    public function showAll()
+    {
+        $userId = Auth::id();
+        $user = User::find($userId);
+
+        if ($user) {
+            foreach ($user->roles as $role) {
+                if ((in_array($role->name, ['Admin', 'Moderator']))) {
+                    $resumes = Resume::withTrashed()->get();
+                    return view('resumes.all', compact('resumes'));
+                }
+            }
+        }
+        return redirect(route('home'));
     }
 }

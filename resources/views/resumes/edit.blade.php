@@ -3,7 +3,7 @@
 @section('content')
 
 
-<form action="{{ route('resumes.update', ['resume' => $resume->id]) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('resumes.update', ['resume' => $resume->id]) }}" style="width: 50%; margin: 0 auto;" method="post" enctype="multipart/form-data">
     @csrf
     @method('patch')
     <h1>Общая информация</h1>
