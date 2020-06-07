@@ -20,9 +20,13 @@ Route::get('/', ['as' => 'home', function (){
     return view('home');
 }])->middleware(['role']);;
 
+Route::group(['middleware' => ['web', 'auth']], function () {
 
+    Route::get('resumes/download/{userid}', ['as' => 'resumes.download', 'uses' => 'ResumeController@download']);
+    Route::get('resumes/admin/all', ['as' => 'resumes.admin.all', 'uses' => 'ResumeController@showAll']);
+    //Route::get('resumes/admin/show/{id}', ['as' => 'resumes.admin.show', 'uses' => 'ResumeController@adminShow']);
+    Route::delete('resumes/admin/destroy/{id}', ['as' => 'resumes.admin.destroy', 'uses' => 'ResumeController@adminDestroy']);
 
-Route::resource('resumes', 'ResumeController');
+    Route::resource('resumes', 'ResumeController');
 
-Route::get('resume/download/{userid}', ['as' => 'resumes.download', 'uses' => 'ResumeController@download']);
-Route::get('resume/showall', ['as' => 'resumes.showall', 'uses' => 'ResumeController@showAll']);
+});

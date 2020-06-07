@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+@section('title', 'Редактирование резюме')
+
+
 @section('content')
 
 

@@ -230,25 +230,58 @@ class ResumeController extends Controller
     private function fetchResumeOrFail(int $id)
     {
         try {
-            return Resume::find($id);
+
+            $resume = Resume::find($id);
+
+            if ($resume == null) {
+                $userRoles = $this->getUserRole();
+                if ((array_intersect($userRoles, ['Admin', 'Moderator']))){
+                    $resume = Resume::withTrashed()->find($id);
+                }
+            }
+
+            return $resume;
         } catch (\Exception $e) {
             abort(Response::HTTP_NOT_FOUND, $e->getMessage());
         }
     }
 
+    public function adminDestroy($id)
+    {
+        $resume = Resume::withTrashed()
+                    ->where('id', $id);
+
+        $resume->forceDelete();
+        return redirect(route('resumes.admin.all'));
+    }
+
     public function showAll()
+    {
+        $userRoles = $this->getUserRole();
+
+        if ($userRoles) {
+            if ((array_intersect($userRoles, ['Admin', 'Moderator']))) {
+                $resumes = Resume::withTrashed()->get();
+                return view('resumes.admin.all', compact('resumes'));
+            }
+        }
+
+        return redirect(route('home'));
+    }
+
+    public function getUserRole()
     {
         $userId = Auth::id();
         $user = User::find($userId);
 
         if ($user) {
             foreach ($user->roles as $role) {
-                if ((in_array($role->name, ['Admin', 'Moderator']))) {
-                    $resumes = Resume::withTrashed()->get();
-                    return view('resumes.all', compact('resumes'));
-                }
+                $userRoles[] = $role->name;
             }
+            return $userRoles;
         }
-        return redirect(route('home'));
+
+        return null;
     }
+
 }
