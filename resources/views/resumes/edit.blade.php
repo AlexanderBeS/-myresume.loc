@@ -6,7 +6,7 @@
 @section('content')
 
 
-<form action="{{ route('resumes.update', ['resume' => $resume->id]) }}" style="width: 50%; margin: 0 auto;" method="post" enctype="multipart/form-data">
+<form class="pt-4" action="{{ route('resumes.update', ['resume' => $resume->id]) }}" style="width: 50%; margin: 0 auto;" method="post" enctype="multipart/form-data">
     @csrf
     @method('patch')
     <h1>Общая информация</h1>
@@ -40,35 +40,35 @@
         <div class="mb-4">
             <label for="job_category">Категория для размещения*:</label>
             <select class="form-control" name="job_category" required>
-                <option value="1">IT, компьютеры, интернет</option>
-                <option value="2">Администрация, руководство среднего звена</option>
-                <option value="3">Бухгалтерия, аудит</option>
-                <option value="4">Гостинично-ресторанный бизнес, туризм</option>
-                <option value="5">Дизайн, творчество</option>
-                <option value="6">Красота, фитнес, спорт</option>
-                <option value="7">Культура, музыка, шоу-бизнес</option>
-                <option value="8">Логистика, склад, ВЭД</option>
-                <option value="9">Маркетинг, реклама, PR</option>
-                <option value="10">Медицина, фармацевтика</option>
-                <option value="11">Недвижимость</option>
-                <option value="12">Образование, наука</option>
-                <option value="13">Охрана, безопасность</option>
-                <option value="14">Продажи, закупки</option>
-                <option value="15">Рабочие специальности, производство</option>
-                <option value="16">Розничная торговля</option>
-                <option value="17">Секретариат, делопроизводство, АХО</option>
-                <option value="18">Сельское хозяйство, агробизнес</option>
-                <option value="19">СМИ, издательство, полиграфия</option>
-                <option value="20">Страхование</option>
-                <option value="21">Строительство, архитектура</option>
-                <option value="22">Сфера обслуживания</option>
-                <option value="23">Телекоммуникации и связь</option>
-                <option value="24">Топ-менеджмент, руководство высшего звена</option>
-                <option value="25">Транспорт, автобизнес</option>
-                <option value="26">Управление персоналом, HR</option>
-                <option value="27">Финансы, банк</option>
-                <option value="28">Юриспруденция</option>
-                <option value="29">Другие сферы деятельности</option>
+                <option value="1" {{ ($resume->job_category === 1) ? 'selected' : '' }}>IT, компьютеры, интернет</option>
+                <option value="2" {{ ($resume->job_category === 2) ? 'selected' : '' }}>Администрация, руководство среднего звена</option>
+                <option value="3" {{ ($resume->job_category === 3) ? 'selected' : '' }}>Бухгалтерия, аудит</option>
+                <option value="4" {{ ($resume->job_category === 4) ? 'selected' : '' }}>Гостинично-ресторанный бизнес, туризм</option>
+                <option value="5" {{ ($resume->job_category === 5) ? 'selected' : '' }}>Дизайн, творчество</option>
+                <option value="6" {{ ($resume->job_category === 6) ? 'selected' : '' }}>Красота, фитнес, спорт</option>
+                <option value="7" {{ ($resume->job_category === 7) ? 'selected' : '' }}>Культура, музыка, шоу-бизнес</option>
+                <option value="8" {{ ($resume->job_category === 8) ? 'selected' : '' }}>Логистика, склад, ВЭД</option>
+                <option value="9" {{ ($resume->job_category === 9) ? 'selected' : '' }}>Маркетинг, реклама, PR</option>
+                <option value="10" {{ ($resume->job_category === 10) ? 'selected' : '' }}>Медицина, фармацевтика</option>
+                <option value="11" {{ ($resume->job_category === 11) ? 'selected' : '' }}>Недвижимость</option>
+                <option value="12" {{ ($resume->job_category === 12) ? 'selected' : '' }}>Образование, наука</option>
+                <option value="13" {{ ($resume->job_category === 13) ? 'selected' : '' }}>Охрана, безопасность</option>
+                <option value="14" {{ ($resume->job_category === 14) ? 'selected' : '' }}>Продажи, закупки</option>
+                <option value="15" {{ ($resume->job_category === 15) ? 'selected' : '' }}>Рабочие специальности, производство</option>
+                <option value="16" {{ ($resume->job_category === 16) ? 'selected' : '' }}>Розничная торговля</option>
+                <option value="17" {{ ($resume->job_category === 17) ? 'selected' : '' }}>Секретариат, делопроизводство, АХО</option>
+                <option value="18" {{ ($resume->job_category === 18) ? 'selected' : '' }}>Сельское хозяйство, агробизнес</option>
+                <option value="19" {{ ($resume->job_category === 19) ? 'selected' : '' }}>СМИ, издательство, полиграфия</option>
+                <option value="20" {{ ($resume->job_category === 20) ? 'selected' : '' }}>Страхование</option>
+                <option value="21" {{ ($resume->job_category === 21) ? 'selected' : '' }}>Строительство, архитектура</option>
+                <option value="22" {{ ($resume->job_category === 22) ? 'selected' : '' }}>Сфера обслуживания</option>
+                <option value="23" {{ ($resume->job_category === 23) ? 'selected' : '' }}>Телекоммуникации и связь</option>
+                <option value="24" {{ ($resume->job_category === 24) ? 'selected' : '' }}>Топ-менеджмент, руководство высшего звена</option>
+                <option value="25" {{ ($resume->job_category === 25) ? 'selected' : '' }}>Транспорт, автобизнес</option>
+                <option value="26" {{ ($resume->job_category === 26) ? 'selected' : '' }}>Управление персоналом, HR</option>
+                <option value="27" {{ ($resume->job_category === 27) ? 'selected' : '' }}>Финансы, банк</option>
+                <option value="28" {{ ($resume->job_category === 28) ? 'selected' : '' }}>Юриспруденция</option>
+                <option value="29" {{ ($resume->job_category === 29) ? 'selected' : '' }}>Другие сферы деятельности</option>
             </select>
         </div>
 
@@ -176,19 +176,6 @@
 
     <button type="submit" class="btn btn-success">Обновить</button>
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

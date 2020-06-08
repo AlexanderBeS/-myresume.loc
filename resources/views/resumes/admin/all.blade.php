@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pt-4">
         @foreach($resumes as $resume)
             <div class="card mb-2 mr-2 col-3">
                 <div class="card-body">
@@ -16,7 +16,7 @@
                         </p>
                         @endif
                         <p style="color:red" class="col-10">
-                            userid: {{ $resume->user_id }}
+                            userid: {{ $resume->author }}
                         </p>
 
 
@@ -38,7 +38,11 @@
                     <div class="row">
                         @if (!$resume->deleted_at)
                             <a href="{{ route('resumes.edit', ['resume' => $resume->id]) }}" class="btn btn-primary col mb-1">Редактировать</a>
+                        @else
+                            <a href="{{ route('resumes.admin.restore', ['id' => $resume->id]) }}" class="btn btn-primary col mb-1">Восстановить</a>
                         @endif
+
+
                         <div class="w-100"></div>
                         <a href="{{ route('resumes.download', $resume->id) }}" class="btn btn-primary col mb-1">Скачать PDF</a>
                     </div>
@@ -46,11 +50,4 @@
             </div>
         @endforeach
     </div>
-
-    <div class="row justify-content-center">
-        <div class="col-3">
-            <a href="{{ route('resumes.create') }}" class="btn btn-primary">Создать новое резюме</a>
-        </div>
-    </div>
-
 @endsection

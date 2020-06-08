@@ -136,7 +136,7 @@ class ResumeController extends Controller
     public function update(Request $request, $id)
     {
 
-        try {
+        //try {
             $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
@@ -187,9 +187,9 @@ class ResumeController extends Controller
             $resume->save();
 
             return redirect(route('resumes.show', ['resume' => $id]));
-        } catch (\Exception $exception) {
-            return redirect(route('resumes.edit', ['resume' => $id]));
-        }
+//        } catch (\Exception $exception) {
+//            return redirect(route('resumes.edit', ['resume' => $id]));
+//        }
     }
 
     /**
@@ -230,7 +230,6 @@ class ResumeController extends Controller
     private function fetchResumeOrFail(int $id)
     {
         try {
-
             $resume = Resume::find($id);
 
             if ($resume == null) {
@@ -255,6 +254,15 @@ class ResumeController extends Controller
         return redirect(route('resumes.admin.all'));
     }
 
+    public function adminRestore($id)
+    {
+        $resume = Resume::withTrashed()
+            ->where('id', $id)
+            ->restore();
+
+        return redirect(route('resumes.admin.all'));
+    }
+
     public function showAll()
     {
         $userRoles = $this->getUserRole();
@@ -262,6 +270,11 @@ class ResumeController extends Controller
         if ($userRoles) {
             if ((array_intersect($userRoles, ['Admin', 'Moderator']))) {
                 $resumes = Resume::withTrashed()->get();
+
+                foreach ($resumes as $resume) {
+                    $resume->author = User::find($resume->user_id)->name;
+                }
+
                 return view('resumes.admin.all', compact('resumes'));
             }
         }

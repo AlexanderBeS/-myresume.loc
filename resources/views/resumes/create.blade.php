@@ -3,7 +3,7 @@
 @section('title', 'Создать резюме')
 
 @section('content')
-<form action="{{ route('resumes.store') }}" method="post" style="width: 50%; margin: 0 auto;" enctype="multipart/form-data">
+<form class="pt-4" action="{{ route('resumes.store') }}" method="post" style="width: 50%; margin: 0 auto;" enctype="multipart/form-data">
     @csrf
     <h1>Общая информация</h1>
 

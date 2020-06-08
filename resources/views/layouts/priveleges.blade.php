@@ -1,24 +1,11 @@
-<div id="headerwrap">
-    <div class="container">
-        <div class="row centered">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h1>It Doesn't Take a Rocket <b>Scientist</b></h1>
-                <h2>It Takes a Designer</h2>
-            </div>
-        </div>
-        <!-- row -->
-    </div>
-    <!-- container -->
-</div>
-
 
 <div class="container w">
     <div class="row centered">
         <br><br>
         <div class="col-lg-4">
             <i class="fa fa-heart"></i>
-            <h4>DESIGN</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            <h4>Дизайн</h4>
+            <p>Полностью адаптивный дизайн. Только вы выбираете, как будет выглядеть резюме. Добавление фото, выбор категорий и всех самых востребованых данных.</p>
         </div>
         <!-- col-lg-4 -->
 
@@ -45,7 +32,7 @@
 <div id="lg">
     <div class="container">
         <div class="row centered">
-            <h4>OUR AWESOME CLIENTS</h4>
+            <h4>Наши клиенты</h4>
             <div class="item-logo">
                 <div class="item-logo-img work1"></div>
             </div>

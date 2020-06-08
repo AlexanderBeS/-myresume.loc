@@ -39,7 +39,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function resumes (): HasMany
+    public function resumes(): HasMany
     {
         return $this->hasMany(Resume::class);
     }
@@ -47,5 +47,6 @@ class User extends Authenticatable
     public function roles():BelongsToMany
     {
         return $this->belongsToMany(Role::class);
+        //return $this->belongsToMany(Role::class)->withPivot('role_id', 'user_id');
     }
 }

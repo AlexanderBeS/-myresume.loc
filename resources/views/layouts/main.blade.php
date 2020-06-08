@@ -37,8 +37,8 @@
 
 @include('layouts.navbar')
 
-
-<main class="py-4 content w-100">
+@yield('headerwrap')
+<main class="pb-4 content w-100 container">
     @yield('content')
 </main>
 
