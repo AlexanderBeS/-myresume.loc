@@ -15,6 +15,7 @@ interface ResumeRepositoryInterface
 {
     public function findById(int $id);
     public function findByUserId(int $id);
+    public function findAllByUserId(int $userId);
     public function softDelete(int $id);
     public function hardDelete(int $id);
     public function findWithTrashed(int $id);

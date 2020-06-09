@@ -11,6 +11,7 @@ namespace App\Http\Services;
 
 use App\Models\Resume;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 
 interface ResumeServiceInterface
 {
@@ -23,10 +24,10 @@ interface ResumeServiceInterface
     public function getResumeById(int $id): Resume;
 
     /**
-     * @param int|null $userId
+     * @param int|null $id
      * @return Collection
      */
-    public function getAllResumesByUserId(int $userId = null): Collection;
+    public function getAllResumesByUserId(int $id = null): Collection;
 
     /**
      * @throws \Exception
@@ -38,20 +39,30 @@ interface ResumeServiceInterface
     /**
      * @throws \Exception
      * @param int $id
-     * @param array $resumeData
+     * @param Request $request
      * @return int
      */
-    public function updateResume(int $id, array $resumeData): int;
+    public function updateResume(Request $request, int $id): int;
 
     /**
      * @throws \Exception
      * @param int $id
      */
-    public function softDeletePost(int $id): void;
+    public function softDeleteResume(int $id): void;
 
     /**
      * @throws \Exception
      * @param int $id
      */
-    public function hardDeletePost(int $id): void;
+    public function hardDeleteResume(int $id): void;
+
+
+    public function saveResume(Request $request);
+
+    public function getResumeByIdWithTrashed(int $id);
+
+    public function restoreTrashed(int $id);
+    public function getAllResumesWithTrashed();
+    public function getResumeAuthor(int $id);
+
 }

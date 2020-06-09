@@ -20,7 +20,6 @@ class ResumeController extends Controller
         $this->resumeService = $resumeService;
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +27,7 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        $resumes = Resume::all()->where('user_id', Auth::id());
+        $resumes = $this->resumeService->getAllResumesByUserId(Auth::id());
 
         return view('resumes.index', compact('resumes'));
     }
@@ -51,7 +50,6 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
-
         try {
             $this->validate($request, [
                 'position' => 'required',
@@ -66,42 +64,16 @@ class ResumeController extends Controller
                 'duties' => 'sometimes|string|nullable',
                 'resume_visibility' => 'required|integer',
                 'no_experience' => 'sometimes|integer|nullable',
-                'education_lvl'=> 'sometimes|integer|nullable',
+                'education_lvl'=> 'sometimes|string|nullable',
                 'type_education_lvl'=> 'integer|nullable',
                 'institution'=> 'sometimes|string|nullable',
                 'education_date_start'=> 'sometimes|date|nullable',
-                'education_date_finish'=> 'sometimes|date|after:job_date_start|nullable',
+                'education_date_finish'=> 'sometimes|date|after:education_date_start|nullable',
                 'avatar'=> 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|nullable',
             ]);
 
-            $fileName = null;
-            if ($request->hasFile('avatar')) {
-                $file = $request->file('avatar');
-                $fileName = md5($file->getClientOriginalName() . time()) . "." . $file->getClientOriginalExtension();
-                $file->move('./storage', $fileName);
-            }
 
-            $resume = new Resume();
-                $resume->position = $request->get('position');
-                $resume->city = $request->get('city');
-                $resume->employment_type = $request->get('employment_type');
-                $resume->salary = $request->get('salary');
-                $resume->job_category = $request->get('job_category');
-                $resume->experience = $request->get('experience');
-                $resume->last_job = $request->get('last_job');
-                $resume->job_date_start = $request->get('job_date_start');
-                $resume->job_date_finish = $request->get('job_date_finish');
-                $resume->duties = $request->get('duties');
-                $resume->no_experience = $request->get('no_experience');
-                $resume->education_lvl = $request->get('education_lvl');
-                $resume->type_education_lvl = $request->get('type_education_lvl');
-                $resume->institution = $request->get('institution');
-                $resume->education_date_start = $request->get('education_date_start');
-                $resume->education_date_finish = $request->get('education_date_finish');
-                $resume->resume_visibility = $request->get('resume_visibility');
-                $resume->avatar = $fileName;
-                $resume->user_id = Auth::id();
-            $resume->save();
+            $this->resumeService->saveResume($request);
 
             return redirect(route('resumes.index'));
 
@@ -160,11 +132,11 @@ class ResumeController extends Controller
                 'duties' => 'sometimes|string|nullable',
                 'resume_visibility' => 'required|integer',
                 'no_experience' => 'sometimes|integer|nullable',
-                'education_lvl'=> 'sometimes|integer|nullable',
+                'education_lvl'=> 'sometimes|string|nullable',
                 'type_education_lvl'=> 'integer|nullable',
                 'institution'=> 'sometimes|string|nullable',
                 'education_date_start'=> 'sometimes|date|nullable',
-                'education_date_finish'=> 'sometimes|date|after:job_date_start|nullable',
+                'education_date_finish'=> 'sometimes|date|after:education_date_start|nullable',
                 'avatar'=> 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|nullable',
             ]);
 
@@ -210,9 +182,7 @@ class ResumeController extends Controller
      */
     public function destroy($id)
     {
-        $resume = Resume::findOrFail($id);
-
-        $resume->delete();
+        $this->resumeService->softDeleteResume($id);
         return redirect(route('resumes.index'));
     }
 
@@ -240,12 +210,12 @@ class ResumeController extends Controller
     private function fetchResumeOrFail(int $id)
     {
         try {
-            $resume = Resume::find($id);
+            $resume = $this->resumeService->getResumeById($id);
 
             if ($resume == null) {
                 $userRoles = $this->getUserRole();
                 if ((array_intersect($userRoles, ['Admin', 'Moderator']))){
-                    $resume = Resume::withTrashed()->find($id);
+                    $resume = $this->resumeService->getResumeByIdWithTrashed($id);
                 }
             }
 
@@ -257,19 +227,14 @@ class ResumeController extends Controller
 
     public function adminDestroy($id)
     {
-        $resume = Resume::withTrashed()
-                    ->where('id', $id);
-
-        $resume->forceDelete();
+        $this->resumeService->hardDeleteResume($id);
         return redirect(route('resumes.admin.all'));
     }
 
     public function adminRestore($id)
     {
-        $resume = Resume::withTrashed()
-            ->where('id', $id)
-            ->restore();
 
+        $restored = $this->resumeService->restoreTrashed($id);
         return redirect(route('resumes.admin.all'));
     }
 
@@ -279,10 +244,11 @@ class ResumeController extends Controller
 
         if ($userRoles) {
             if ((array_intersect($userRoles, ['Admin', 'Moderator']))) {
-                $resumes = Resume::withTrashed()->get();
+
+                $resumes = $this->resumeService->getAllResumesWithTrashed();
 
                 foreach ($resumes as $resume) {
-                    $resume->author = User::find($resume->user_id)->name;
+                    $resume->author = $this->resumeService->getResumeAuthor($resume->user_id);
                 }
 
                 return view('resumes.admin.all', compact('resumes'));

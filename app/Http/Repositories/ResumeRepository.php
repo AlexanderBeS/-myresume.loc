@@ -22,7 +22,15 @@ class ResumeRepository implements ResumeRepositoryInterface
     public function findByUserId(int $id)
     {
         // TODO: Implement findByUserId() method.
-        $resumes = Resume::all()->where('user_id', Auth::id());
+        //$resumes = Resume::all()->where('user_id', Auth::id());
+    }
+
+    public function findAllByUserId(int $userId)
+    {
+        // TODO: Implement findByUserId() method.
+        $resumes = Resume::all()->where('user_id', $userId);
+
+        return $resumes;
     }
 
     public function softDelete(int $id)
