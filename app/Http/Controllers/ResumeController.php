@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\ResumeServiceInterface;
 use App\Models\Resume;
 use App\Models\User;
 use App\Models\Role;
@@ -11,6 +12,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ResumeController extends Controller
 {
+    /** @var ResumeServiceInterface */
+    private $resumeService;
+
+    public function __construct(ResumeServiceInterface $resumeService)
+    {
+        $this->resumeService = $resumeService;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -136,7 +146,7 @@ class ResumeController extends Controller
     public function update(Request $request, $id)
     {
 
-        //try {
+        try {
             $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
@@ -187,9 +197,9 @@ class ResumeController extends Controller
             $resume->save();
 
             return redirect(route('resumes.show', ['resume' => $id]));
-//        } catch (\Exception $exception) {
-//            return redirect(route('resumes.edit', ['resume' => $id]));
-//        }
+        } catch (\Exception $exception) {
+            return redirect(route('resumes.edit', ['resume' => $id]));
+        }
     }
 
     /**

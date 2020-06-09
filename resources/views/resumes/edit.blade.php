@@ -74,15 +74,16 @@
 
 
         <div class="mb-4">
-
-            @if ($resume->avatar)
-                <label for="old_avatar">Текущий аватар:</label>
-                <img  name="old_avatar" src="{{Storage::url($resume->avatar)}}" class="img-thumbnail rounded" style="max-width: 100px; max-height: 100px;"/>
-            @endif
-
-
-            <label for="avatar">Загрузить аватар:</label>
-            <input type="file" name="avatar" id="avatar">
+            <div class="col-4">
+                @if ($resume->avatar)
+                    <label for="old_avatar">Текущий аватар:</label>
+                    <img  name="old_avatar" src="{{Storage::url($resume->avatar)}}" class="img-thumbnail rounded" style="max-width: 100px; max-height: 100px;"/>
+                @endif
+            </div>
+            <div class="col-4">
+                <label for="avatar">Загрузить аватар:</label>
+                <input type="file" name="avatar" id="avatar">
+            </div>
         </div>
     </div>
 
