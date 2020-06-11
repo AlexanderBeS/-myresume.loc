@@ -50,7 +50,7 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+//        try {
             $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
@@ -72,14 +72,16 @@ class ResumeController extends Controller
                 'avatar'=> 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|nullable',
             ]);
 
-
-            $this->resumeService->saveResume($request);
+            $data = $request->all();
+            $data['avatar'] = $this->resumeService->getFile($request);
+            $this->resumeService->createResume($data);
 
             return redirect(route('resumes.index'));
 
-        } catch (\Exception $e) {
-            return redirect(route('resumes.create'));
-        }
+//        } catch (\Exception $e) {
+//            //dd($e->getMessage());
+//            return redirect(route('resumes.create'));
+//        }
     }
 
     /**
@@ -117,9 +119,8 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         try {
-            $this->validate($request, [
+            $validate = $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
                 'employment_type' => 'required',
@@ -140,33 +141,9 @@ class ResumeController extends Controller
                 'avatar'=> 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|nullable',
             ]);
 
-            $fileName = null;
-            if ($request->hasFile('avatar')) {
-                $file = $request->file('avatar');
-                $fileName = md5($file->getClientOriginalName() . time()) . "." . $file->getClientOriginalExtension();
-                $file->move('./storage', $fileName);
-            }
-
-            $resume = app()->make(Resume::class)->find($id);
-                $resume->position = $request->get('position');
-                $resume->city = $request->get('city');
-                $resume->employment_type = $request->get('employment_type');
-                $resume->salary = $request->get('salary');
-                $resume->job_category = $request->get('job_category');
-                $resume->experience = $request->get('experience');
-                $resume->last_job = $request->get('last_job');
-                $resume->job_date_start = $request->get('job_date_start');
-                $resume->job_date_finish = $request->get('job_date_finish');
-                $resume->duties = $request->get('duties');
-                $resume->no_experience = $request->get('no_experience');
-                $resume->education_lvl = $request->get('education_lvl');
-                $resume->type_education_lvl = $request->get('type_education_lvl');
-                $resume->institution = $request->get('institution');
-                $resume->education_date_start = $request->get('education_date_start');
-                $resume->education_date_finish = $request->get('education_date_finish');
-                $resume->resume_visibility = $request->get('resume_visibility');
-                if(!is_null($fileName)) $resume->avatar = $fileName;
-            $resume->save();
+            $data = $request->all();
+            $data['avatar'] = $this->resumeService->getFile($request);
+            $updated = $this->resumeService->updateResume($data, $id);
 
             return redirect(route('resumes.show', ['resume' => $id]));
         } catch (\Exception $exception) {
@@ -182,7 +159,8 @@ class ResumeController extends Controller
      */
     public function destroy($id)
     {
-        $this->resumeService->softDeleteResume($id);
+        $deleted = $this->resumeService->softDeleteResume($id);
+
         return redirect(route('resumes.index'));
     }
 
@@ -194,11 +172,7 @@ class ResumeController extends Controller
     public function download($id)
     {
         $resume = $this->fetchResumeOrFail($id);
-        $template = view('resumes.pdf', compact('resume')); //dd($template);
-
-        $mpdf = new \Mpdf\Mpdf();
-        $mpdf->WriteHTML($template->render());
-        $mpdf->Output();
+        $pdf = $this->resumeService->download($resume);
     }
 
     /**
@@ -227,7 +201,7 @@ class ResumeController extends Controller
 
     public function adminDestroy($id)
     {
-        $this->resumeService->hardDeleteResume($id);
+        $deleted = $this->resumeService->hardDeleteResume($id);
         return redirect(route('resumes.admin.all'));
     }
 

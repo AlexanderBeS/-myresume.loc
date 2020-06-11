@@ -42,7 +42,7 @@ interface ResumeServiceInterface
      * @param Request $request
      * @return int
      */
-    public function updateResume(Request $request, int $id): int;
+    public function updateResume(array $data, int $id): int;
 
     /**
      * @throws \Exception
@@ -57,12 +57,13 @@ interface ResumeServiceInterface
     public function hardDeleteResume(int $id): void;
 
 
-    public function saveResume(Request $request);
-
     public function getResumeByIdWithTrashed(int $id);
 
     public function restoreTrashed(int $id);
     public function getAllResumesWithTrashed();
     public function getResumeAuthor(int $id);
+    public function download($resume);
+    public function getFile(Request $request);
+
 
 }

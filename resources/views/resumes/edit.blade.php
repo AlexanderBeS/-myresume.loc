@@ -4,7 +4,17 @@
 
 
 @section('content')
-
+<div class="pt-4">
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</div>
 
 <form class="pt-4" action="{{ route('resumes.update', ['resume' => $resume->id]) }}" style="width: 50%; margin: 0 auto;" method="post" enctype="multipart/form-data">
     @csrf
