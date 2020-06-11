@@ -119,7 +119,7 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
+        //try {
             $validate = $this->validate($request, [
                 'position' => 'required',
                 'city' => 'required',
@@ -146,9 +146,9 @@ class ResumeController extends Controller
             $updated = $this->resumeService->updateResume($data, $id);
 
             return redirect(route('resumes.show', ['resume' => $id]));
-        } catch (\Exception $exception) {
-            return redirect(route('resumes.edit', ['resume' => $id]));
-        }
+//        } catch (\Exception $exception) {
+//            return redirect(route('resumes.edit', ['resume' => $id]));
+//        }
     }
 
     /**

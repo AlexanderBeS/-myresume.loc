@@ -49,35 +49,35 @@
         <div class="mb-4">
             <label for="job_category">Категория для размещения*:</label>
             <select class="form-control" name="job_category" required>
-                <option value="1"  {{ (Request::old("job_category") == 1 ? "selected":"") }}>IT, компьютеры, интернет</option>
-                <option value="2"  {{ (Request::old("job_category") == 2 ? "selected":"") }}>Администрация, руководство среднего звена</option>
-                <option value="3"  {{ (Request::old("job_category") == 3 ? "selected":"") }}>Бухгалтерия, аудит</option>
-                <option value="4"  {{ (Request::old("job_category") == 4 ? "selected":"") }}>Гостинично-ресторанный бизнес, туризм</option>
-                <option value="5"  {{ (Request::old("job_category") == 5 ? "selected":"") }}>Дизайн, творчество</option>
-                <option value="6"  {{ (Request::old("job_category") == 6 ? "selected":"") }}>Красота, фитнес, спорт</option>
-                <option value="7"  {{ (Request::old("job_category") == 7 ? "selected":"") }}>Культура, музыка, шоу-бизнес</option>
-                <option value="8"  {{ (Request::old("job_category") == 8 ? "selected":"") }}>Логистика, склад, ВЭД</option>
-                <option value="9"  {{ (Request::old("job_category") == 9 ? "selected":"") }}>Маркетинг, реклама, PR</option>
-                <option value="10" {{ (Request::old("job_category") == 10 ? "selected":"") }}>Медицина, фармацевтика</option>
-                <option value="11" {{ (Request::old("job_category") == 11 ? "selected":"") }}>Недвижимость</option>
-                <option value="12" {{ (Request::old("job_category") == 12 ? "selected":"") }}>Образование, наука</option>
-                <option value="13" {{ (Request::old("job_category") == 13 ? "selected":"") }}>Охрана, безопасность</option>
-                <option value="14" {{ (Request::old("job_category") == 14 ? "selected":"") }}>Продажи, закупки</option>
-                <option value="15" {{ (Request::old("job_category") == 15 ? "selected":"") }}>Рабочие специальности, производство</option>
-                <option value="16" {{ (Request::old("job_category") == 16 ? "selected":"") }}>Розничная торговля</option>
-                <option value="17" {{ (Request::old("job_category") == 17 ? "selected":"") }}>Секретариат, делопроизводство, АХО</option>
-                <option value="18" {{ (Request::old("job_category") == 18 ? "selected":"") }}>Сельское хозяйство, агробизнес</option>
-                <option value="19" {{ (Request::old("job_category") == 19 ? "selected":"") }}>СМИ, издательство, полиграфия</option>
-                <option value="20" {{ (Request::old("job_category") == 20 ? "selected":"") }}>Страхование</option>
-                <option value="21" {{ (Request::old("job_category") == 21 ? "selected":"") }}>Строительство, архитектура</option>
-                <option value="22" {{ (Request::old("job_category") == 22 ? "selected":"") }}>Сфера обслуживания</option>
-                <option value="23" {{ (Request::old("job_category") == 23 ? "selected":"") }}>Телекоммуникации и связь</option>
-                <option value="24" {{ (Request::old("job_category") == 24 ? "selected":"") }}>Топ-менеджмент, руководство высшего звена</option>
-                <option value="25" {{ (Request::old("job_category") == 25 ? "selected":"") }}>Транспорт, автобизнес</option>
-                <option value="26" {{ (Request::old("job_category") == 26 ? "selected":"") }}>Управление персоналом, HR</option>
-                <option value="27" {{ (Request::old("job_category") == 27 ? "selected":"") }}>Финансы, банк</option>
-                <option value="28" {{ (Request::old("job_category") == 28 ? "selected":"") }}>Юриспруденция</option>
-                <option value="29" {{ (Request::old("job_category") == 29 ? "selected":"") }}>Другие сферы деятельности</option>
+                <option value="1"  {{ (Request::old("job_category") == 1 ? "selected":"") }} >IT, компьютеры, интернет</option>
+                <option value="2"  {{ (Request::old("job_category") == 2 ? "selected":"") }} >Администрация, руководство среднего звена</option>
+                <option value="3"  {{ (Request::old("job_category") == 3 ? "selected":"") }} >Бухгалтерия, аудит</option>
+                <option value="4"  {{ (Request::old("job_category") == 4 ? "selected":"") }} >Гостинично-ресторанный бизнес, туризм</option>
+                <option value="5"  {{ (Request::old("job_category") == 5 ? "selected":"") }} >Дизайн, творчество</option>
+                <option value="6"  {{ (Request::old("job_category") == 6 ? "selected":"") }} >Красота, фитнес, спорт</option>
+                <option value="7"  {{ (Request::old("job_category") == 7 ? "selected":"") }} >Культура, музыка, шоу-бизнес</option>
+                <option value="8"  {{ (Request::old("job_category") == 8 ? "selected":"") }} >Логистика, склад, ВЭД</option>
+                <option value="9"  {{ (Request::old("job_category") == 9 ? "selected":"") }} >Маркетинг, реклама, PR</option>
+                <option value="10" {{ (Request::old("job_category") == 10 ? "selected":"") }} >Медицина, фармацевтика</option>
+                <option value="11" {{ (Request::old("job_category") == 11 ? "selected":"") }} >Недвижимость</option>
+                <option value="12" {{ (Request::old("job_category") == 12 ? "selected":"") }} >Образование, наука</option>
+                <option value="13" {{ (Request::old("job_category") == 13 ? "selected":"") }} >Охрана, безопасность</option>
+                <option value="14" {{ (Request::old("job_category") == 14 ? "selected":"") }} >Продажи, закупки</option>
+                <option value="15" {{ (Request::old("job_category") == 15 ? "selected":"") }} >Рабочие специальности, производство</option>
+                <option value="16" {{ (Request::old("job_category") == 16 ? "selected":"") }} >Розничная торговля</option>
+                <option value="17" {{ (Request::old("job_category") == 17 ? "selected":"") }} >Секретариат, делопроизводство, АХО</option>
+                <option value="18" {{ (Request::old("job_category") == 18 ? "selected":"") }} >Сельское хозяйство, агробизнес</option>
+                <option value="19" {{ (Request::old("job_category") == 19 ? "selected":"") }} >СМИ, издательство, полиграфия</option>
+                <option value="20" {{ (Request::old("job_category") == 20 ? "selected":"") }} >Страхование</option>
+                <option value="21" {{ (Request::old("job_category") == 21 ? "selected":"") }} >Строительство, архитектура</option>
+                <option value="22" {{ (Request::old("job_category") == 22 ? "selected":"") }} >Сфера обслуживания</option>
+                <option value="23" {{ (Request::old("job_category") == 23 ? "selected":"") }} >Телекоммуникации и связь</option>
+                <option value="24" {{ (Request::old("job_category") == 24 ? "selected":"") }} >Топ-менеджмент, руководство высшего звена</option>
+                <option value="25" {{ (Request::old("job_category") == 25 ? "selected":"") }} >Транспорт, автобизнес</option>
+                <option value="26" {{ (Request::old("job_category") == 26 ? "selected":"") }} >Управление персоналом, HR</option>
+                <option value="27" {{ (Request::old("job_category") == 27 ? "selected":"") }} >Финансы, банк</option>
+                <option value="28" {{ (Request::old("job_category") == 28 ? "selected":"") }} >Юриспруденция</option>
+                <option value="29" {{ (Request::old("job_category") == 29 ? "selected":"") }} >Другие сферы деятельности</option>
             </select>
         </div>
 
