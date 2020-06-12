@@ -10,77 +10,78 @@ namespace App\Http\Repositories;
 
 
 use App\Models\Resume;
+use Illuminate\Support\Facades\Auth;
 
 class ResumeRepository implements ResumeRepositoryInterface
 {
-    public function findById(int $id)
-    {
-        // TODO: Implement findById() method.
-        Resume::findOrFail($id);
-    }
 
-    public function findByUserId(int $id)
-    {
-        // TODO: Implement findByUserId() method.
-        //$resumes = Resume::all()->where('user_id', Auth::id());
-    }
-
+    /**
+     * @param int $userId
+     * @return Resume[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function findAllByUserId(int $userId)
     {
-        // TODO: Implement findByUserId() method.
         $resumes = Resume::all()->where('user_id', $userId);
 
         return $resumes;
     }
 
-    public function softDelete(int $id)
-    {
-        // TODO: Implement softDelete() method.
-        $resume->delete();
-    }
-
-    public function hardDelete(int $id)
-    {
-        // TODO: Implement hardDelete() method.
-        $resume->forceDelete();
-    }
-
-    public function findWithTrashed(int $id)
-    {
-        // TODO: Implement findWithTrashed() method.
-        Resume::withTrashed()
-            ->where('id', $id);
-    }
-
-    public function restoreTrashed(int $id)
-    {
-        // TODO: Implement restoreTrashed() method.
-        Resume::withTrashed()
-            ->where('id', $id)
-            ->restore();
-    }
-
+    /**
+     * @param Resume $resume
+     * @param array $data
+     */
     public function saveResume(Resume $resume, array $data)
     {
-        $resume->position = $request->get('position');
-        $resume->city = $request->get('city');
-        $resume->employment_type = $request->get('employment_type');
-        $resume->salary = $request->get('salary');
-        $resume->job_category = $request->get('job_category');
-        $resume->experience = $request->get('experience');
-        $resume->last_job = $request->get('last_job');
-        $resume->job_date_start = $request->get('job_date_start');
-        $resume->job_date_finish = $request->get('job_date_finish');
-        $resume->duties = $request->get('duties');
-        $resume->no_experience = $request->get('no_experience');
-        $resume->education_lvl = $request->get('education_lvl');
-        $resume->type_education_lvl = $request->get('type_education_lvl');
-        $resume->institution = $request->get('institution');
-        $resume->education_date_start = $request->get('education_date_start');
-        $resume->education_date_finish = $request->get('education_date_finish');
-        $resume->resume_visibility = $request->get('resume_visibility');
-        $resume->avatar = $fileName;
+        $resume->position = $data['position'];
+        $resume->city = $data['city'];
+        $resume->employment_type = $data['employment_type'];
+        $resume->salary = $data['salary'];
+        $resume->job_category = $data['job_category'];
+        $resume->experience = $data['experience'];
+        $resume->last_job = $data['last_job'];
+        $resume->job_date_start = $data['job_date_start'];
+        $resume->job_date_finish = $data['job_date_finish'];
+        $resume->duties = $data['duties'];
+
+        (isset($data['no_experience']))? $resume->no_experience = $data['no_experience'] : null;
+
+        $resume->education_lvl = $data['education_lvl'];
+        $resume->type_education_lvl = $data['type_education_lvl'];
+        $resume->institution = $data['institution'];
+        $resume->education_date_start = $data['education_date_start'];
+        $resume->education_date_finish = $data['education_date_finish'];
+        $resume->resume_visibility = $data['resume_visibility'];
+        $resume->avatar = $data['avatar'];
         $resume->user_id = Auth::id();
+        $resume->save();
+    }
+
+    /**
+     * @param Resume $resume
+     * @param array $data
+     */
+    public function updateResume(Resume $resume, array $data)
+    {
+        $resume->position = $data['position'];
+        $resume->city = $data['city'];
+        $resume->employment_type = $data['employment_type'];
+        $resume->salary = $data['salary'];
+        $resume->job_category = $data['job_category'];
+        $resume->experience = $data['experience'];
+        $resume->last_job = $data['last_job'];
+        $resume->job_date_start = $data['job_date_start'];
+        $resume->job_date_finish = $data['job_date_finish'];
+        $resume->duties = $data['duties'];
+
+        (isset($data['no_experience']))? $resume->no_experience = $data['no_experience'] : null;
+
+        $resume->education_lvl = $data['education_lvl'];
+        $resume->type_education_lvl = $data['type_education_lvl'];
+        $resume->institution = $data['institution'];
+        $resume->education_date_start = $data['education_date_start'];
+        $resume->education_date_finish = $data['education_date_finish'];
+        $resume->resume_visibility = $data['resume_visibility'];
+        if(!is_null($data['avatar'])) $resume->avatar = $data['avatar'];
         $resume->save();
     }
 

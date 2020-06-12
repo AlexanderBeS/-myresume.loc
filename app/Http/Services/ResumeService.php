@@ -28,9 +28,8 @@ class ResumeService implements ResumeServiceInterface
 
     /**
      * @param int $id
-     *
-     * @throws \Exception
      * @return Resume
+     *
      */
     public function getResumeById(int $id): Resume
     {
@@ -47,75 +46,33 @@ class ResumeService implements ResumeServiceInterface
     }
 
     /**
-     * @throws \Exception
-     * @param array $resumeData
+     * @param array $data
      * @return int
      */
     public function createResume(array $data): int
     {
         $resume = new Resume();
-            $resume->position = $data['position'];
-            $resume->city = $data['city'];
-            $resume->employment_type = $data['employment_type'];
-            $resume->salary = $data['salary'];
-            $resume->job_category = $data['job_category'];
-            $resume->experience = $data['experience'];
-            $resume->last_job = $data['last_job'];
-            $resume->job_date_start = $data['job_date_start'];
-            $resume->job_date_finish = $data['job_date_finish'];
-            $resume->duties = $data['duties'];
-
-            (isset($data['no_experience']))? $resume->no_experience = $data['no_experience'] : null;
-
-            $resume->education_lvl = $data['education_lvl'];
-            $resume->type_education_lvl = $data['type_education_lvl'];
-            $resume->institution = $data['institution'];
-            $resume->education_date_start = $data['education_date_start'];
-            $resume->education_date_finish = $data['education_date_finish'];
-            $resume->resume_visibility = $data['resume_visibility'];
-            $resume->avatar = $data['avatar'];
-            $resume->user_id = Auth::id();
-        $resume->save();
+        $this->resumeRepository->saveResume($resume, $data);
 
         return $resume->id;
     }
 
     /**
-     * @throws \Exception
+     * @param array $data
      * @param int $id
-     * @param Request $request
      * @return int
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function updateResume(array $data, int $id): int
     {
+
         $resume = app()->make(Resume::class)->find($id);
-            $resume->position = $data['position'];
-            $resume->city = $data['city'];
-            $resume->employment_type = $data['employment_type'];
-            $resume->salary = $data['salary'];
-            $resume->job_category = $data['job_category'];
-            $resume->experience = $data['experience'];
-            $resume->last_job = $data['last_job'];
-            $resume->job_date_start = $data['job_date_start'];
-            $resume->job_date_finish = $data['job_date_finish'];
-            $resume->duties = $data['duties'];
-
-            (isset($data['no_experience']))? $resume->no_experience = $data['no_experience'] : null;
-
-            $resume->education_lvl = $data['education_lvl'];
-            $resume->type_education_lvl = $data['type_education_lvl'];
-            $resume->institution = $data['institution'];
-            $resume->education_date_start = $data['education_date_start'];
-            $resume->education_date_finish = $data['education_date_finish'];
-            $resume->resume_visibility = $data['resume_visibility'];
-            if(!is_null($data['avatar'])) $resume->avatar = $data['avatar'];
-        $resume->save();
+        $this->resumeRepository->updateResume($resume, $data);
 
         return $resume->id;
     }
 
     /**
-     * @throws \Exception
      * @param int $id
      */
     public function softDeleteResume(int $id): void
@@ -134,6 +91,10 @@ class ResumeService implements ResumeServiceInterface
         $resume->forceDelete();
     }
 
+    /**
+     * @param Request $request
+     * @return null|string
+     */
     public function getFile(Request $request)
     {
         $fileName = null;
@@ -146,11 +107,19 @@ class ResumeService implements ResumeServiceInterface
         return $fileName;
     }
 
+    /**
+     * @param int $id
+     * @return Resume|Resume[]|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|Collection|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Builder[]|\Illuminate\Support\Collection|mixed|null
+     */
     public function getResumeByIdWithTrashed(int $id)
     {
         return Resume::withTrashed()->find($id);
     }
 
+    /**
+     * @param int $id
+     * @return bool
+     */
     public function restoreTrashed(int $id)
     {
         try {
@@ -163,17 +132,29 @@ class ResumeService implements ResumeServiceInterface
         }
     }
 
+    /**
+     * @return Resume[]|\Illuminate\Database\Eloquent\Builder[]|Collection|\Illuminate\Database\Query\Builder[]|\Illuminate\Support\Collection
+     */
     public function getAllResumesWithTrashed()
     {
         return Resume::withTrashed()->get();
     }
 
+    /**
+     * @param int $id
+     * @return string
+     */
     public function getResumeAuthor(int $id)
     {
         return User::find($id)->name;
     }
 
-    public function download($resume)
+    /**
+     * @param Resume $resume
+     * @throws \Mpdf\MpdfException
+     * @throws \Throwable
+     */
+    public function download(Resume $resume)
     {
         $template = view('resumes.pdf', compact('resume'));
 

@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72145e0e-c985-41df-a940-8d6601ee6c97" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/myresume.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myresume.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResumeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResumeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/resumes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/resumes/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/resumes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/resumes/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Repositories/ResumeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Repositories/ResumeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Repositories/ResumeRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Repositories/ResumeRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Services/ResumeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/ResumeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Services/ResumeServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/ResumeServiceInterface.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/resumes/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="178" column="70" selection-start-line="178" selection-start-column="70" selection-end-line="178" selection-end-column="70" />
+            <state relative-caret-position="681">
+              <caret line="156" column="109" selection-start-line="156" selection-start-column="95" selection-end-line="156" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -72,8 +69,8 @@
       <file leaf-file-name="ResumeService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Services/ResumeService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+            <state relative-caret-position="-683">
+              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding>
                 <element signature="e#123#175#0#PHP" expanded="true" />
               </folding>
@@ -81,13 +78,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResumeServiceInterface.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Services/ResumeServiceInterface.php">
+      <file leaf-file-name="ResumeRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Repositories/ResumeRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="210">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
-                <element signature="e#123#145#0#PHP" expanded="true" />
+                <element signature="e#127#149#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResumeRepositoryInterface.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Repositories/ResumeRepositoryInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+              <folding>
+                <element signature="e#6#90#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,9 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Добро пожаловать на сайт по созданию резюме!</find>
-      <find>app.css</find>
-      <find>#ebebeb</find>
       <find>Logout</find>
       <find>Login</find>
       <find>&quot;Login&quot;</find>
@@ -127,6 +133,9 @@
       <find>saveResume</find>
       <find />
       <find>textarea</find>
+      <find>resumeRepository</find>
+      <find>restoreTrashed</find>
+      <find>findAllByUserId</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,18 +183,18 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Http/Repositories/ResumeRepositoryInterface.php" />
-        <option value="$PROJECT_DIR$/app/Http/Repositories/ResumeRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/verify.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Services/ResumeServiceInterface.php" />
-        <option value="$PROJECT_DIR$/app/Http/Services/ResumeService.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ResumeController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_11_181953_add_foreign_resumes_users.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_11_183612_change_foreign_keys.php" />
         <option value="$PROJECT_DIR$/resources/views/resumes/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/resumes/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Services/ResumeServiceInterface.php" />
+        <option value="$PROJECT_DIR$/app/Http/Services/ResumeService.php" />
+        <option value="$PROJECT_DIR$/app/Http/Repositories/ResumeRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/app/Http/Repositories/ResumeRepository.php" />
       </list>
     </option>
   </component>
@@ -470,12 +479,12 @@
       <workItem from="1591766663891" duration="192000" />
       <workItem from="1591847798224" duration="6570000" />
       <workItem from="1591859138581" duration="1416000" />
-      <workItem from="1591899417873" duration="3237000" />
+      <workItem from="1591899417873" duration="5135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121185000" />
+    <option name="totallyTimeSpent" value="123083000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -499,7 +508,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" visible="true" weight="0.1459695" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" weight="0.1459695" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -510,6 +519,27 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16577825" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" visible="true" weight="0.1459695" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946696" weight="0.32897604" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -821,33 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Repositories/ResumeRepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Repositories/ResumeRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/ResumeServiceInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#123#145#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_11_181953_add_foreign_resumes_users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -893,16 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/ResumeService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
-          <folding>
-            <element signature="e#123#175#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/resumes/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-42">
@@ -940,8 +933,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/resumes/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="178" column="70" selection-start-line="178" selection-start-column="70" selection-end-line="178" selection-end-column="70" />
+        <state relative-caret-position="681">
+          <caret line="156" column="109" selection-start-line="156" selection-start-column="95" selection-end-line="156" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/ResumeServiceInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+          <folding>
+            <element signature="e#123#145#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/ResumeService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-683">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding>
+            <element signature="e#123#175#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Repositories/ResumeRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Repositories/ResumeRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#127#149#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

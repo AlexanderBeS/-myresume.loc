@@ -45,24 +45,49 @@ interface ResumeServiceInterface
     public function updateResume(array $data, int $id): int;
 
     /**
-     * @throws \Exception
      * @param int $id
      */
     public function softDeleteResume(int $id): void;
 
     /**
-     * @throws \Exception
      * @param int $id
      */
     public function hardDeleteResume(int $id): void;
 
-
+    /**
+     * @param int $id
+     * @return mixed
+     */
     public function getResumeByIdWithTrashed(int $id);
 
+    /**
+     * @param int $id
+     * @return bool
+     */
     public function restoreTrashed(int $id);
+
+    /**
+     * @return mixed
+     */
     public function getAllResumesWithTrashed();
+
+    /**
+     * @param int $id
+     * @return string
+     */
     public function getResumeAuthor(int $id);
-    public function download($resume);
+
+    /**
+     * @param Resume $resume
+     * @throws \Mpdf\MpdfException
+     * @throws \Throwable
+     */
+    public function download(Resume $resume);
+
+    /**
+     * @param Request $request
+     * @return null|string
+     */
     public function getFile(Request $request);
 
 
