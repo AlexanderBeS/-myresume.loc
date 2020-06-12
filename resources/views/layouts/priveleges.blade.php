@@ -11,15 +11,15 @@
 
         <div class="col-lg-4">
             <i class="fa fa-laptop"></i>
-            <h4>BOOTSTRAP</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            <h4>Удобство</h4>
+            <p>Если вам срочно нужно создать резюме, то наш сервис доступен с любых устройств. Заполняете данные, генерируете PDF и скачиваете. Ваше резюме будет готово в течении 2-ух минут!</p>
         </div>
         <!-- col-lg-4 -->
 
         <div class="col-lg-4">
             <i class="fa fa-trophy"></i>
-            <h4>SUPPORT</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            <h4>Поддержка</h4>
+            <p>Быстрый ответ от технической поддержки. Если у вас возникли вопросы, оставьте заявку на почту qwerty@gmail.com. Наши специалисти ответят вам в течении одной минуты.</p>
         </div>
         <!-- col-lg-4 -->
     </div>
