@@ -37,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResumeController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResumeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ResumeController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="370">
@@ -47,6 +47,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -301,68 +306,6 @@
               <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
               <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myresume.loc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myresume.loc" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -428,12 +371,12 @@
       <workItem from="1591847798224" duration="6570000" />
       <workItem from="1591859138581" duration="1416000" />
       <workItem from="1591899417873" duration="6993000" />
-      <workItem from="1592030071035" duration="11161000" />
+      <workItem from="1592030071035" duration="11444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136102000" />
+    <option name="totallyTimeSpent" value="136385000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,7 +395,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946696" weight="0.40087146" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" visible="true" weight="0.23965141" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" visible="true" weight="0.40413943" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20469083" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -527,13 +470,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Resume.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -924,6 +860,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

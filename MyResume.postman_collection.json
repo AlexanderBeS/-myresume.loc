@@ -121,21 +121,27 @@
 		{
 			"name": "Resume delete",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiOTA0Yjg4NzY4YmI4YjRhNTAzN2Q0MDIyNDIwMDFmYjkwMTZkYjMyOTZjZGI2ZmQ0ZGI4NDhmMDkyYWIzZjc0MGY2MTZhMzViOTc1OTJlYzYiLCJpYXQiOjE1OTIwNDMyMzIsIm5iZiI6MTU5MjA0MzIzMiwiZXhwIjoxNjIzNTc5MjMyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AkFvQT7g8I7O1Lzv0VqG6uc2ef1vZVyq6n5UiQIOvRvWHYnhE5mJHB-2YNoOloAnANSKDuKS7cJYvx5wt3M7HqLNqmvY3RSHzCRPQMuFbstQxd4KLOLgAjbnTpOZd-IW4oIvi9RJzXvXf-ZwZZ59UV2skVJp0yBY0L_66xn_6f-4P8_8QufWA9ITl_haqKq13m6F3F7fNgNbS2JZobCja5mylLIjd_nZkXTrRGPX1vzSuIXeC8IgOYwEYfkxFCSPKmzEa_hEnot-AqnU2peQVPMgZreem_cRXxOdq-GxI6Ve9FQov-9DgftYQbz2e3qJXgw0_OAJjfFoMEoptJoWcYPWioxmyAHvVo57Qbh4owc_rcP6ayWE-9613IBfHGy_swci4Lv8BQRBia5-AJJq58W3pOukKjG38dAD8KG9jlffAeK4StL85yq9f6RvaeHTCP12RtBHxT-qPM6lUwuOe2XYj-YfdtqKMWwofKtCsoBqbYxhubMMQdU5TjC27pLx2EWMvDxArcwXekZPWYqirxbKIIr2YlQ7h4mcswN2PywVxTP0LDxxdt8ye4aFpVsNopXy8pxus779g0RTqMCF39J3kM-RXJAPrBi1K1PEJ8dPusETa32jj3Qx0JckZk7zJurd_T6pa-YrLmefKqs15YO1HVGYlK_vJwJj4ROAM6g",
-						"type": "text"
+						"type": "text",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiOTA0Yjg4NzY4YmI4YjRhNTAzN2Q0MDIyNDIwMDFmYjkwMTZkYjMyOTZjZGI2ZmQ0ZGI4NDhmMDkyYWIzZjc0MGY2MTZhMzViOTc1OTJlYzYiLCJpYXQiOjE1OTIwNDMyMzIsIm5iZiI6MTU5MjA0MzIzMiwiZXhwIjoxNjIzNTc5MjMyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AkFvQT7g8I7O1Lzv0VqG6uc2ef1vZVyq6n5UiQIOvRvWHYnhE5mJHB-2YNoOloAnANSKDuKS7cJYvx5wt3M7HqLNqmvY3RSHzCRPQMuFbstQxd4KLOLgAjbnTpOZd-IW4oIvi9RJzXvXf-ZwZZ59UV2skVJp0yBY0L_66xn_6f-4P8_8QufWA9ITl_haqKq13m6F3F7fNgNbS2JZobCja5mylLIjd_nZkXTrRGPX1vzSuIXeC8IgOYwEYfkxFCSPKmzEa_hEnot-AqnU2peQVPMgZreem_cRXxOdq-GxI6Ve9FQov-9DgftYQbz2e3qJXgw0_OAJjfFoMEoptJoWcYPWioxmyAHvVo57Qbh4owc_rcP6ayWE-9613IBfHGy_swci4Lv8BQRBia5-AJJq58W3pOukKjG38dAD8KG9jlffAeK4StL85yq9f6RvaeHTCP12RtBHxT-qPM6lUwuOe2XYj-YfdtqKMWwofKtCsoBqbYxhubMMQdU5TjC27pLx2EWMvDxArcwXekZPWYqirxbKIIr2YlQ7h4mcswN2PywVxTP0LDxxdt8ye4aFpVsNopXy8pxus779g0RTqMCF39J3kM-RXJAPrBi1K1PEJ8dPusETa32jj3Qx0JckZk7zJurd_T6pa-YrLmefKqs15YO1HVGYlK_vJwJj4ROAM6g"
 					},
 					{
 						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"url": {
-					"raw": "http://myresume.loc/api/resumes/7",
+					"raw": "http://myresume.loc/api/resumes/48",
 					"protocol": "http",
 					"host": [
 						"myresume",
@@ -144,7 +150,7 @@
 					"path": [
 						"api",
 						"resumes",
-						"7"
+						"48"
 					]
 				}
 			},
