@@ -49,3 +49,26 @@ Guest, User, Admin.
 3. Настроена подгрузка данных в форму, которые были в форме до ошибки.
 4. Валидация полей ввода.
 5. При регистрации пользователю ему автоматически присваивается группа User.
+
+
+## Пример ссылок:
+
+<p>
+<br>http://myresume.loc/
+<br>http://myresume.loc/login
+<br>http://myresume.loc/register
+<br>http://myresume.loc/logout
+<br>http://myresume.loc/resumes
+<br>http://myresume.loc/resumes/1
+<br>http://myresume.loc/resumes/1/edit
+<br>http://myresume.loc/resumes/create
+<br>http://myresume.loc/resumes/admin/all
+<br>http://myresume.loc/resumes/download/1
+</p>
+
+
+
+
+
+
+

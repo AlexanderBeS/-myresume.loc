@@ -120,7 +120,7 @@
         @endif
     </div>
 
-    <h1>Образование</h1>here are many variation
+    <h1>Образование</h1>
     <div class="form-group">
         @if ($resume->education_lvl)
         <div class="mb-4">

@@ -35,7 +35,7 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-3">
+    <div class="" style="max-width:230px">
         <a href="{{ route('resumes.create') }}" class="btn btn-primary">Создать новое резюме</a>
     </div>
 </div>
