@@ -40,7 +40,7 @@ Guest, User, Admin.
  
 ## Таблицы в БД:
 
-<img src="https://lh3.googleusercontent.com/I_FMsbyif8jhmdIZTWnz8BzL35Qwxd5QvX6eqDnXJ7oXqfD3b91zd2gRXRPwuPXQ2K7kEBzHT9ONQ2wrcXtOcmWkj-t0w5jkAoZJ5nll8oI19vmDclKAXvVnA1Rue4DHACyte3uIxXk9pv8LWvIw8yUXPKZRZJLLD3DtwhKIDlSOe3Yut7BIiKgQcai13bbLLHd4OOHwkZ2bCJWiU92BtV2dEJA90wyL7tZSwI0r7NA2JuMAsIURIjUKABaoQrbP_3pdBlbb75LnK9GHS61TrSbTr2oYnzX__Xe7hnsJz7NHHUWLWC4ivC4uMv3X5P69PkW9b6Ktw2hv4BxW7DnLJJ3z4V0RulYBsJHWiG9RI-pZ3Y4Oe0OU2F75Tj9ELCWNpuNggoZr4NJAmUbWstPvBW7OJy9F1HJWtB89kDlXEVbtBjfsl_BjPGkaSPPX5viCkuudhoaCl0KFzVqA_V6kP-y-_1NeRzUoe7Z6TJR9xos9D8lxLBbri5SruPr6qfteAmPiGdunOvS-3UqL2CQ8akzobftpUKofg345wYDAkXsZU2-QQxYeccdBHnFBYoUPwHkTnN7q3oc8hTvXxm8H_jMEMyImBQ3G_viC8AnKVX2M9LyOC8y23QwuE2bh570VRJWf15xdpSA2j-fCnGrU8r7tfjwnv23FnDSv-8WVzwQ-zeX5fM_d8_2BKnxP=s250-k-rw-no" alt="db" width="790" height="753" data-load="full" style="">
+<img src="https://photos.google.com/photo/AF1QipOXExzdpPS_OBI1jCgGEms_4kliFVrvj4KywkF_" alt="db" width="790" height="753" data-load="full" style="">
 
 ## Некоторые ф-ции:
 
