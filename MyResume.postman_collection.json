@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "fe472649-8b11-409a-aeeb-2c3edc11d4a3",
+		"name": "MyResume",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all resumes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiOTA0Yjg4NzY4YmI4YjRhNTAzN2Q0MDIyNDIwMDFmYjkwMTZkYjMyOTZjZGI2ZmQ0ZGI4NDhmMDkyYWIzZjc0MGY2MTZhMzViOTc1OTJlYzYiLCJpYXQiOjE1OTIwNDMyMzIsIm5iZiI6MTU5MjA0MzIzMiwiZXhwIjoxNjIzNTc5MjMyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AkFvQT7g8I7O1Lzv0VqG6uc2ef1vZVyq6n5UiQIOvRvWHYnhE5mJHB-2YNoOloAnANSKDuKS7cJYvx5wt3M7HqLNqmvY3RSHzCRPQMuFbstQxd4KLOLgAjbnTpOZd-IW4oIvi9RJzXvXf-ZwZZ59UV2skVJp0yBY0L_66xn_6f-4P8_8QufWA9ITl_haqKq13m6F3F7fNgNbS2JZobCja5mylLIjd_nZkXTrRGPX1vzSuIXeC8IgOYwEYfkxFCSPKmzEa_hEnot-AqnU2peQVPMgZreem_cRXxOdq-GxI6Ve9FQov-9DgftYQbz2e3qJXgw0_OAJjfFoMEoptJoWcYPWioxmyAHvVo57Qbh4owc_rcP6ayWE-9613IBfHGy_swci4Lv8BQRBia5-AJJq58W3pOukKjG38dAD8KG9jlffAeK4StL85yq9f6RvaeHTCP12RtBHxT-qPM6lUwuOe2XYj-YfdtqKMWwofKtCsoBqbYxhubMMQdU5TjC27pLx2EWMvDxArcwXekZPWYqirxbKIIr2YlQ7h4mcswN2PywVxTP0LDxxdt8ye4aFpVsNopXy8pxus779g0RTqMCF39J3kM-RXJAPrBi1K1PEJ8dPusETa32jj3Qx0JckZk7zJurd_T6pa-YrLmefKqs15YO1HVGYlK_vJwJj4ROAM6g",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://myresume.loc/api/resumes",
+					"protocol": "http",
+					"host": [
+						"myresume",
+						"loc"
+					],
+					"path": [
+						"api",
+						"resumes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "4D82nE8vDxvjzqrg8U7QoKJkgfuU2NPTjDioZJ4s",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "def50200a044638e815d11b76df610c3b4491b5d88d4b8fe5134961e4fa47ee4f0a5d1d112fba3f032ac7e562658da4ab2544f69601f90710be945f6cdeea4008fce355e334ac047d38a5362dd8ca85073195c67965eece5af74b1cc7e7c6173116ce6a50b93724ac19f863a5f031f352a834194728bb0ee129fdda6a11b52e9785644d143a8d1d2ff3d5bfb8af684a557636ce64af0408687f7ec26b837f4eeae0560b0982e2573554f86e8d1ca9ed2b013ed0eb2583b2e2875b54c5b96c25bb77023f0306290922ce81ee935eb6da8fc1161a2c5e0ba056a0a1174f10e8361d6dda9d8c5fbd0171e7c5c64b9f6b5ebf0268fe94798af9c88fb0ab4fc2225e83ed79267b8ca57db20ad34d25e450fec8588be5bde2b5d677dabdaeeab215af766aef6855676c875339b731d1b6f81d91d478213be81f1fda6e88ea4a4d8e6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://myresume.loc/oauth/token",
+					"protocol": "http",
+					"host": [
+						"myresume",
+						"loc"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resume show",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiOTA0Yjg4NzY4YmI4YjRhNTAzN2Q0MDIyNDIwMDFmYjkwMTZkYjMyOTZjZGI2ZmQ0ZGI4NDhmMDkyYWIzZjc0MGY2MTZhMzViOTc1OTJlYzYiLCJpYXQiOjE1OTIwNDMyMzIsIm5iZiI6MTU5MjA0MzIzMiwiZXhwIjoxNjIzNTc5MjMyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AkFvQT7g8I7O1Lzv0VqG6uc2ef1vZVyq6n5UiQIOvRvWHYnhE5mJHB-2YNoOloAnANSKDuKS7cJYvx5wt3M7HqLNqmvY3RSHzCRPQMuFbstQxd4KLOLgAjbnTpOZd-IW4oIvi9RJzXvXf-ZwZZ59UV2skVJp0yBY0L_66xn_6f-4P8_8QufWA9ITl_haqKq13m6F3F7fNgNbS2JZobCja5mylLIjd_nZkXTrRGPX1vzSuIXeC8IgOYwEYfkxFCSPKmzEa_hEnot-AqnU2peQVPMgZreem_cRXxOdq-GxI6Ve9FQov-9DgftYQbz2e3qJXgw0_OAJjfFoMEoptJoWcYPWioxmyAHvVo57Qbh4owc_rcP6ayWE-9613IBfHGy_swci4Lv8BQRBia5-AJJq58W3pOukKjG38dAD8KG9jlffAeK4StL85yq9f6RvaeHTCP12RtBHxT-qPM6lUwuOe2XYj-YfdtqKMWwofKtCsoBqbYxhubMMQdU5TjC27pLx2EWMvDxArcwXekZPWYqirxbKIIr2YlQ7h4mcswN2PywVxTP0LDxxdt8ye4aFpVsNopXy8pxus779g0RTqMCF39J3kM-RXJAPrBi1K1PEJ8dPusETa32jj3Qx0JckZk7zJurd_T6pa-YrLmefKqs15YO1HVGYlK_vJwJj4ROAM6g",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://myresume.loc/api/resumes/7",
+					"protocol": "http",
+					"host": [
+						"myresume",
+						"loc"
+					],
+					"path": [
+						"api",
+						"resumes",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resume delete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiOTA0Yjg4NzY4YmI4YjRhNTAzN2Q0MDIyNDIwMDFmYjkwMTZkYjMyOTZjZGI2ZmQ0ZGI4NDhmMDkyYWIzZjc0MGY2MTZhMzViOTc1OTJlYzYiLCJpYXQiOjE1OTIwNDMyMzIsIm5iZiI6MTU5MjA0MzIzMiwiZXhwIjoxNjIzNTc5MjMyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AkFvQT7g8I7O1Lzv0VqG6uc2ef1vZVyq6n5UiQIOvRvWHYnhE5mJHB-2YNoOloAnANSKDuKS7cJYvx5wt3M7HqLNqmvY3RSHzCRPQMuFbstQxd4KLOLgAjbnTpOZd-IW4oIvi9RJzXvXf-ZwZZ59UV2skVJp0yBY0L_66xn_6f-4P8_8QufWA9ITl_haqKq13m6F3F7fNgNbS2JZobCja5mylLIjd_nZkXTrRGPX1vzSuIXeC8IgOYwEYfkxFCSPKmzEa_hEnot-AqnU2peQVPMgZreem_cRXxOdq-GxI6Ve9FQov-9DgftYQbz2e3qJXgw0_OAJjfFoMEoptJoWcYPWioxmyAHvVo57Qbh4owc_rcP6ayWE-9613IBfHGy_swci4Lv8BQRBia5-AJJq58W3pOukKjG38dAD8KG9jlffAeK4StL85yq9f6RvaeHTCP12RtBHxT-qPM6lUwuOe2XYj-YfdtqKMWwofKtCsoBqbYxhubMMQdU5TjC27pLx2EWMvDxArcwXekZPWYqirxbKIIr2YlQ7h4mcswN2PywVxTP0LDxxdt8ye4aFpVsNopXy8pxus779g0RTqMCF39J3kM-RXJAPrBi1K1PEJ8dPusETa32jj3Qx0JckZk7zJurd_T6pa-YrLmefKqs15YO1HVGYlK_vJwJj4ROAM6g",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://myresume.loc/api/resumes/7",
+					"protocol": "http",
+					"host": [
+						"myresume",
+						"loc"
+					],
+					"path": [
+						"api",
+						"resumes",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
