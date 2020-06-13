@@ -40,7 +40,7 @@ Guest, User, Admin.
  
 ## Таблицы в БД:
 
-<img src="https://i.ibb.co/G058VD4/db.png" alt="db" width="790" height="753" data-load="full" style="">
+<img src="https://lh3.googleusercontent.com/I_FMsbyif8jhmdIZTWnz8BzL35Qwxd5QvX6eqDnXJ7oXqfD3b91zd2gRXRPwuPXQ2K7kEBzHT9ONQ2wrcXtOcmWkj-t0w5jkAoZJ5nll8oI19vmDclKAXvVnA1Rue4DHACyte3uIxXk9pv8LWvIw8yUXPKZRZJLLD3DtwhKIDlSOe3Yut7BIiKgQcai13bbLLHd4OOHwkZ2bCJWiU92BtV2dEJA90wyL7tZSwI0r7NA2JuMAsIURIjUKABaoQrbP_3pdBlbb75LnK9GHS61TrSbTr2oYnzX__Xe7hnsJz7NHHUWLWC4ivC4uMv3X5P69PkW9b6Ktw2hv4BxW7DnLJJ3z4V0RulYBsJHWiG9RI-pZ3Y4Oe0OU2F75Tj9ELCWNpuNggoZr4NJAmUbWstPvBW7OJy9F1HJWtB89kDlXEVbtBjfsl_BjPGkaSPPX5viCkuudhoaCl0KFzVqA_V6kP-y-_1NeRzUoe7Z6TJR9xos9D8lxLBbri5SruPr6qfteAmPiGdunOvS-3UqL2CQ8akzobftpUKofg345wYDAkXsZU2-QQxYeccdBHnFBYoUPwHkTnN7q3oc8hTvXxm8H_jMEMyImBQ3G_viC8AnKVX2M9LyOC8y23QwuE2bh570VRJWf15xdpSA2j-fCnGrU8r7tfjwnv23FnDSv-8WVzwQ-zeX5fM_d8_2BKnxP=s250-k-rw-no" alt="db" width="790" height="753" data-load="full" style="">
 
 ## Некоторые ф-ции:
 
@@ -70,10 +70,7 @@ Guest, User, Admin.
 
 ## Api
 
-http://myresume.loc/oauth/authorize?client_id=3&response_type=code - запрос
 
-code:
-def50200a044638e815d11b76df610c3b4491b5d88d4b8fe5134961e4fa47ee4f0a5d1d112fba3f032ac7e562658da4ab2544f69601f90710be945f6cdeea4008fce355e334ac047d38a5362dd8ca85073195c67965eece5af74b1cc7e7c6173116ce6a50b93724ac19f863a5f031f352a834194728bb0ee129fdda6a11b52e9785644d143a8d1d2ff3d5bfb8af684a557636ce64af0408687f7ec26b837f4eeae0560b0982e2573554f86e8d1ca9ed2b013ed0eb2583b2e2875b54c5b96c25bb77023f0306290922ce81ee935eb6da8fc1161a2c5e0ba056a0a1174f10e8361d6dda9d8c5fbd0171e7c5c64b9f6b5ebf0268fe94798af9c88fb0ab4fc2225e83ed79267b8ca57db20ad34d25e450fec8588be5bde2b5d677dabdaeeab215af766aef6855676c875339b731d1b6f81d91d478213be81f1fda6e88ea4a4d8e6
 
 
 
