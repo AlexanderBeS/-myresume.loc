@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Services\ResumeServiceInterface;
+use App\Services\ResumeServiceInterface;
 use App\Models\Resume;
 use App\Models\User;
 use App\Models\Role;

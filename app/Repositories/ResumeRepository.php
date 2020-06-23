@@ -6,7 +6,7 @@
  * Time: 8:08
  */
 
-namespace App\Http\Repositories;
+namespace App\Repositories;
 
 
 use App\Models\Resume;

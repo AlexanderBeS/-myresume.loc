@@ -6,10 +6,10 @@
  * Time: 8:07
  */
 
-namespace App\Http\Services;
+namespace App\Services;
 
 
-use App\Http\Repositories\ResumeRepositoryInterface;
+use App\Repositories\ResumeRepositoryInterface;
 use App\Models\Resume;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;

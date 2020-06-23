@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Http\Repositories\ResumeRepository;
-use App\Http\Repositories\ResumeRepositoryInterface;
-use App\Http\Services\ResumeService;
-use App\Http\Services\ResumeServiceInterface;
+use App\Repositories\ResumeRepository;
+use App\Repositories\ResumeRepositoryInterface;
+use App\Services\ResumeService;
+use App\Services\ResumeServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
